@@ -1,3 +1,21 @@
 /**
  * Created by sdonose on 9/22/2015.
  */
+var app=angular.module('app',['ui.bootstrap','ui.router','ui.map','ui.event']);
+
+app.config(function($stateProvider,$urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('movies',{
+            url:'/movies',
+            templateUrl:'pages/movies.html'
+        })
+        .state('weather',{
+            url:'/weather',
+            templateUrl:'pages/weather.html'
+        })
+
+
+
+})
