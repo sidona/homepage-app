@@ -7,7 +7,33 @@ app.controller('mainCtrl', function ($scope) {
 })
 
 app.controller('moviesCtrl', function ($scope, $http) {
-    $scope.moviesArray = [];
+
+
+    var pendingTask;
+    if ($scope.search === undefined) {
+        $scope.search = "Survivor";
+        fetch();
+    }
+    $scope.change = function() {
+        if (pendingTask) {
+            clearTimeout(pendingTask);
+        }
+        pendingTask = setTimeout(fetch, 800);
+    };
+
+    function fetch() {
+        $http.get("http://www.omdbapi.com/?t=" + $scope.titles + "&&y=&plot=short&r=json").success(function (response) {
+            $scope.movies = response;
+        });
+    }
+    $scope.select = function() {
+        this.setSelectionRange(0, this.value.length);
+    }
+
+
+
+
+   /* $scope.moviesArray = [];
     $scope.titlesArray = [
         'survivor',
         'the godfather',
@@ -18,11 +44,11 @@ app.controller('moviesCtrl', function ($scope, $http) {
         $http.get("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&r=json").success(function (response) {
             $scope.moviesArray.push(response);
         })
-    })
+    })*/
 });
 
 
-app.controller('weather',function($scope){
+app.controller('weatherCtrl',function($scope){
 
 
 })

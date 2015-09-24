@@ -1,35 +1,27 @@
 <div class="well" ng-controller="moviesCtrl" style="margin-left: 300px;margin-right: 300px">
     <div class="row">
         <div class="col-md-3">
-            <form>
-                <div class="form-group">
-                    <label for="movies">Search movies</label>
-                    <input type="text" class="form-control" id="movies" ng-model="search" placeholder="search movies">
-                    <button type="submit" class="btn btn-default" ng-click="searchMovies()">Submit</button>
+
+                <div class="input-group search-bar">
+                    <input type="text"  ng-model="titles" ng-change="change()" onclick="select()" size="30" autofocus>
                 </div>
 
-            </form>
-        </div>
-        </div>
 
-
-        <div ng-repeat="movies in moviesArray" class="">
-
-
-            <div class="row" style="margin-left: 100px">
-                <div class="col-md-4">
-                    <h2>{{movies.Title}}</h2>
-                    <img ng-src="{{movies.Poster}}">
-                </div>
-                <div class="col-md-8" style="margin-top: 100px">
-                    {{movies.Year}}
-                    {{movies.Released}}
-                    {{movies.Genre}}
-                    {{movies.Plot}}
+                <div class="row" style="margin-left: 100px">
+                    <div class="col-md-4">
+                        <h2>{{movies.Title}}</h2>
+                        <img ng-src="{{movies.Poster}}" class="thumbnail animated flip movie-poster">
+                    </div>
+                    <div class="col-md-8" style="margin-top: 100px">
+                        {{movies.Year}}
+                        {{movies.Released}}
+                        {{movies.Genre}}
+                        {{movies.Plot}}
+                    </div>
                 </div>
             </div>
 
-
             </ul>
         </div>
-    </div>
+
+</div>
