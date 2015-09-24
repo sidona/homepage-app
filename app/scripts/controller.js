@@ -48,7 +48,17 @@ app.controller('moviesCtrl', function ($scope, $http) {
 });
 
 
-app.controller('weatherCtrl',function($scope){
+app.controller('weatherCtrl',['$scope','hmWeather',function($scope,hmWeather){
 
+    hmWeather.geoLocation().success(function(response){
+        $scope.weather=response;
+    })
 
-})
+}])
+
+app.controller('movieListCtrl',['$scope','listMovieApi',function($scope,listMovieApi){
+
+    listMovieApi.getMovies().success(function(response){
+        $scope.list = response;
+    });
+}])

@@ -15,6 +15,15 @@ app.config(function($stateProvider,$urlRouterProvider){
             url:'/weather',
             templateUrl:'pages/weather.html'
         })
+        .state('listMovie',{
+            url:'/listMovie',
+            templateUrl:'pages/listMovie.html'
+        })
+        .state('detailMovie',{
+        url:'/detailMovie',
+        templateUrl:'pages/detailMovie.html'
+    })
+
 
 
 
