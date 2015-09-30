@@ -1,0 +1,72 @@
+
+
+<div data-ng-controller="newsCtrl">
+
+
+    <form class="form-horizontal col-md-8" role="form" >
+        <div class="row" style="margin-left: 20px;margin-right: 100px">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="{{phMessage}}" data-ng-model="feedSrc">
+
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            {{currentButtonText}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
+
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="background-color: lightgoldenrodyellow">
+                            <li ng-repeat="feed in allFeeds" style="background-color: #fffbd5"><a href="#" ng-click="loadFeed($event,feed.url);" style="background-color: #fffbd5">{{feed.titleText}}</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="input-group-btn">
+                        <button ng-click="saveFeed()" class="btn btn-default" data-toggle="tooltip" data-placement="top"
+                                title="Save Feed To Your List" type="button"><span
+                                class="glyphicon glyphicon-save"></span></button>
+                    </div>
+                    <div class="input-group-btn">
+                        <button ng-click="removeAllFeedsFromLocalStorage()" class="btn btn-default" type="button"><span
+                                class="glyphicon glyphicon-remove"></span></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row top-buffer">
+            <div class="col-md-6" ng-show="feeds.length > 0">
+                <div class="input-group">
+                    <input class="form-control col-md-8" type="text" placeholder="Search" data-ng-model="filterText"/>
+
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default" data-ng-click="clearText()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    <ul class="unstyled">
+        <span class="badge badge-warning top-buffer" ng-show="feeds.length > 0">{{(feeds | filter:filterText).length}} Items</span>
+        <div class="feed" ng-repeat="feed in feeds | filter:filterText">
+            <h5><strong><a href="{{feed.link}}" target="_blank"><span class="titleText" style="color: black">{{feed.title}}</span></a><span
+                    class="small">&nbsp;&nbsp;&nbsp;&nbsp;{{feed.publishedDate}}</span></strong></h5>
+
+            <p class="text-left">{{feed.contentSnippet}}</p>
+            <img ng-src="{{feed.image}}">
+
+        </div>
+        </ul>
+    </form>
+</div>
+

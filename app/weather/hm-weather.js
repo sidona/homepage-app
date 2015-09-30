@@ -7,12 +7,12 @@
     function hmWeatherDirective($http) {
         return {
             restrict: 'E',
-            templateUrl: 'scripts/hm-weather/hm-weather.html'
-            //link: hmWeatherDirectiveLinkFn
+            templateUrl: 'weather/hm-weather.html',
+            link: hmWeatherDirectiveLinkFn
         }
 
 
-       /* function hmWeatherDirectiveLinkFn($scope, attrs, el) {
+        function hmWeatherDirectiveLinkFn($scope, attrs, el) {
             $scope.geoLocation = function () {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -37,7 +37,7 @@
 
         }
 
-*/
+
 
     }
     hmWeatherDirective.$inject = ['$http'];

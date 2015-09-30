@@ -17,9 +17,13 @@
     "angular-animate": "~1.4.6",
     "angular-bootstrap": "~0.13.4",
     "angular-resource": "~1.4.6",
+    "angular-seed": "*",
     "angular-ui-event": "~1.0.0",
     "angular-ui-map": "~0.5.0",
     "angular-ui-router": "~0.2.15",
-    "bootstrap": "~3.3.5"
+    "angular-underscore-module": "~1.0.1",
+    "bootstrap": "~3.3.5",
+    "underscore": "~1.8.3",
+    "angular-sanitize": "~1.4.6"
   }
 }

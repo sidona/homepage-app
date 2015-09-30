@@ -1,8 +1,8 @@
 /**
  * Created by sdonose on 9/24/2015.
- */
 
-    app.factory('hmWeather', ['$scope','$http',function($scope,$http) {
+
+    app.factory('hmWeather', ['$scope','$http',function() {
 
 
         function geoLocation($scope, $http) {
@@ -27,3 +27,4 @@
     }]);
 
 
+*/

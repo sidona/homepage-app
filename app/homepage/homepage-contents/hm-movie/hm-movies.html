@@ -1,0 +1,18 @@
+
+<div class="panel panel-primary" ng-controller="hm-movie-ctrl" style="width: 600px;height: 830px;margin-left: -10px" >
+    <div class="panel-heading" style="font-size:large;background-color: black">
+        <strong>Movies</strong>
+    </div>
+    <div class="panel-body" ng-repeat="movie in movies | limitTo: moviesLimit()" style="height: 170px">
+
+            <img clas=img" ng-src="{{movie.urlPoster}}" style="width: 60px ">
+            <a ui-sref="movieDetail({id:movie.id})" style="color: white">{{movie.title}}</a>
+            <p style="color: #122b40">Detail: {{movie.simplePlot}}</p>
+
+
+</div>
+    <button ng-show="hasMoreMovieToShow()" ng-click="showMoreMovies()">Show More</button>
+</div>
+    </div>
+
+

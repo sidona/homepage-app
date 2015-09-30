@@ -4,7 +4,7 @@
 app.directive('hmNavbar',function(){
     return{
         restrict:'AE',
-        templateUrl:'pages/navbar.html'
+        templateUrl:'homepage/navbar/navbar.html'
     }
 })
 
