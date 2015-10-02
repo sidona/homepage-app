@@ -1,7 +1,7 @@
 /**
  * Created by sdonose on 9/22/2015.
  */
-var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop']);
+var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop','angular-skycons']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -51,9 +51,3 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 
 })
-app.run(['$rootScope', '$state', '$stateParams',
-    function($rootScope, $state, $stateParams) {
-        $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;
-    }
-])

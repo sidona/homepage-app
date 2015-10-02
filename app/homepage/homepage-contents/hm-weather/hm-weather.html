@@ -3,23 +3,43 @@
         <strong>Weather</strong>
     </div>
     <div class="panel-body">
+        <h5><strong style="color: #fcf5cd">RIGHT NOW</strong></h5>
 
-                    <div ng-show="true">
-                        Latitude: {{latitude}}
-                        Longitude: {{longitude}}
-                    </div>
-                    <div class="row">
-                        <ul>
-                            <li>temperature: {{weather.currently.temperature}} C</li>
-                            <li>Summary:{{weather.currently.summary}}</li>
-                            <li>Humidity: {{weather.currently.humidity}}</li>
-                            <li>TimeZone: {{weather.timezone}}</li>
-                            <li>Wind speed {{weather.currently.windSpeed}}</li>
-                            <span ng-non-bindable>Ora</span>
-                            <span>{{weather.currently.time| date:'yyyy-MM-dd HH:mm:ss '}}</span><br>
-                        </ul>
-                    </div>
+        <div class="row content1">
+            <div class="col-md-8">
+                <ul>
+                    <li><strong><i>Temperature:</i></strong> {{weather.currently.temperature}} C</li>
+                    <li><strong><i>Apparent Temperature: </i></strong>{{weather.currently.apparentTemperature}}</li>
+                    <li><strong><i>Humidity:</i></strong> {{weather.currently.humidity}}</li>
+                    <li><strong><i>Summary:</i></strong> {{weather.currently.summary}}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <skycon icon="weather.currently.icon"></skycon>
+                <br></div>
+        </div>
+        <div class="row">
+            <div class="col-md-9"><h4 style="color: #fcf5cd">7 days</h4>
+            </div>
+        </div>
+        <div class="row content1" ng-repeat="day in weather.daily.data">
+            <div class="col-md-8">
+                <ul>
+                    <span ng-non-bindable><strong><i>Date:</i></strong></span>
+                    <span>{{day.time| timestampToDate | date:'EEEE'}}</span>
+                    <li><strong><i>Temperature: min </i></strong> {{day.temperatureMin}}<strong><i> max</i> </strong>
+                        {{day.temperatureMax}}
+                    </li>
 
-
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <skycon icon="day.icon"></skycon>
+                <br></div>
+        </div>
     </div>
+</div>
+
+
+</div>
 </div>

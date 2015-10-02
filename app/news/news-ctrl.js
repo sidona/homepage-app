@@ -1,9 +1,7 @@
 
 
 app.controller("newsCtrl", ['$scope','newsService', newsCtrl]);
-function newsCtrl($scope, newsService)
-
-
+function newsCtrl($scope, FeedService)
 {
 
     retrieveFromLocalStorage();
@@ -11,14 +9,13 @@ function newsCtrl($scope, newsService)
     $scope.currentButtonText=$scope.allFeeds[0].titleText;
     $scope.loadFeed=function(e,url){
         $scope.currentButtonText = angular.element(e.target).text();
-        // empty out filter text from last time they put one in, because
-        // when they hit a new feed it is confusing.
+
         $scope.filterText = "";
         console.log("loadFeed / click event fired");
 
         if ($scope.currentButtonText == $scope.allFeeds[0].titleText)
         {
-            //console.log($scope.feedSrc);
+
             url = $scope.feedSrc;
         }
 
@@ -32,7 +29,7 @@ function newsCtrl($scope, newsService)
         console.log("button text: " + angular.element(e.target).text());
         console.log("value of url: " );
         console.log(url);
-        newsService.parseFeed(url).then(function(res){
+        FeedService.parseFeed(url).then(function(res){
             $scope.loadButonText=angular.element(e.target).text();
             $scope.feeds=res.data.responseData.feed.entries;
         });
@@ -44,7 +41,7 @@ function newsCtrl($scope, newsService)
 
     function saveToLocalStorage(feeds)
     {
-        // Put the object into storage
+
 
         localStorage.setItem('feeds', angular.toJson(feeds));
         console.log(angular.toJson(feeds));
@@ -60,7 +57,7 @@ function newsCtrl($scope, newsService)
             $scope.allFeeds = JSON.parse(localStorage["feeds"]);
             console.log($scope.allFeeds.length);
 
-            // console.log(JSON.stringify($scope.allFeeds));
+
             if ($scope.allFeeds === null)
             {
                 console.log("couldn't retrieve feeds" );
@@ -80,12 +77,8 @@ function newsCtrl($scope, newsService)
     {
         $scope.allFeeds = [{titleText:"Load (from textbox)",url:""},
             {titleText:"CodeProject C#",url:"http://www.codeproject.com/webservices/articlerss.aspx?cat=3"},
-            {titleText:"ComputerWorld - News",url:"http://www.computerworld.com/index.rss"},
-            {titleText:"Dr. Dobb's",url:"http://www.drdobbs.com/rss/all"},
-            {titleText:"InfoWorld Today's News",url:"http://www.infoworld.com/news/feed"},
-            {titleText:"Inc. Magazine",url:"http://www.inc.com/rss/homepage.xml"},
-            {titleText:"TechCrunch",url:"http://feeds.feedburner.com/TechCrunch"},
-            {titleText:"CNN",url:"http://rss.cnn.com/rss/cnn_topstories.rss"}
+            {titleText:"radu ",url:"http://www.radufconstantinescu.ro/feeds/posts/default"},
+            {titleText:"Dr. Dobb's",url:"http://www.drdobbs.com/rss/all"}
         ];
     }
     $scope.removeAllFeedsFromLocalStorage = removeAllFeedsFromLocalStorage;
