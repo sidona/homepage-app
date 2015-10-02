@@ -1,7 +1,7 @@
 /**
  * Created by sdonose on 9/22/2015.
  */
-var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize']);
+var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

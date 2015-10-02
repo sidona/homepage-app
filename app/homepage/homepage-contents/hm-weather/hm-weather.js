@@ -1,4 +1,7 @@
 /**
+ * Created by sdonose on 10/1/2015.
+ */
+/**
  * Created by sdonose on 9/23/2015.
  */
 
@@ -7,7 +10,7 @@
     function hmWeatherDirective($http) {
         return {
             restrict: 'E',
-            templateUrl: 'weather/hm-weather.html',
+            templateUrl: 'homepage/homepage-contents/hm-weather/hm-weather.html',
             link: hmWeatherDirectiveLinkFn
         }
 
@@ -20,7 +23,7 @@
                         $scope.longitude = position.coords.longitude;
                         //console.log(latitude);
                         // console.log(longitude);
-                        $http.jsonp("https://api.forecast.io/forecast/cdfba6aefd8d7913b292cfdd579abf0b/"+$scope.latitude+","+$scope.longitude+"?units=si&exclude=minutely,hourly,daily,alerts,flags=metric&callback=JSON_CALLBACK")
+                        $http.jsonp("https://api.forecast.io/forecast/cdfba6aefd8d7913b292cfdd579abf0b/"+$scope.latitude+","+$scope.longitude+"?units=si&exclude=flags=metric&callback=JSON_CALLBACK")
                             .success(function(data, status, headers, config) {
                                 $scope.weather = data;
                             });

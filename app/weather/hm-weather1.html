@@ -16,6 +16,8 @@
                     <li>Humidity: {{weather.currently.humidity}}</li>
                     <li>TimeZone: {{weather.timezone}}</li>
                     <li>Wind speed {{weather.currently.windSpeed}}</li>
+                    <span ng-non-bindable>Ora</span>
+                    <span>{{weather.currently.time| date:'yyyy-MM-dd HH:mm:ss '}}</span><br>
                 </ul>
             </div>
         </div>

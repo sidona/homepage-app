@@ -1,8 +1,9 @@
 
 
 app.controller("newsCtrl", ['$scope','newsService', newsCtrl]);
-
 function newsCtrl($scope, newsService)
+
+
 {
 
     retrieveFromLocalStorage();
@@ -10,7 +11,8 @@ function newsCtrl($scope, newsService)
     $scope.currentButtonText=$scope.allFeeds[0].titleText;
     $scope.loadFeed=function(e,url){
         $scope.currentButtonText = angular.element(e.target).text();
-
+        // empty out filter text from last time they put one in, because
+        // when they hit a new feed it is confusing.
         $scope.filterText = "";
         console.log("loadFeed / click event fired");
 
@@ -58,7 +60,7 @@ function newsCtrl($scope, newsService)
             $scope.allFeeds = JSON.parse(localStorage["feeds"]);
             console.log($scope.allFeeds.length);
 
-
+            // console.log(JSON.stringify($scope.allFeeds));
             if ($scope.allFeeds === null)
             {
                 console.log("couldn't retrieve feeds" );
@@ -77,10 +79,12 @@ function newsCtrl($scope, newsService)
     function loadDefaultFeeds()
     {
         $scope.allFeeds = [{titleText:"Load (from textbox)",url:""},
-            {titleText:"Radu F Constantin",url:"http://www.radufconstantinescu.ro/feeds/posts/default"},
-            {titleText:"Food - News",url:"http://www.foodblog.ro/feed/"},
-            {titleText:"Tehnology",url:"http://feeds2.feedburner.com/Go4itro-Stiri"},
-            {titleText:"Adevarul",url:"http://adevarul.ro/ex/yrssv2"},
+            {titleText:"CodeProject C#",url:"http://www.codeproject.com/webservices/articlerss.aspx?cat=3"},
+            {titleText:"ComputerWorld - News",url:"http://www.computerworld.com/index.rss"},
+            {titleText:"Dr. Dobb's",url:"http://www.drdobbs.com/rss/all"},
+            {titleText:"InfoWorld Today's News",url:"http://www.infoworld.com/news/feed"},
+            {titleText:"Inc. Magazine",url:"http://www.inc.com/rss/homepage.xml"},
+            {titleText:"TechCrunch",url:"http://feeds.feedburner.com/TechCrunch"},
             {titleText:"CNN",url:"http://rss.cnn.com/rss/cnn_topstories.rss"}
         ];
     }

@@ -17,3 +17,19 @@ element.style {
     max-height: 750px;
     overflow-y: scroll;
 }
+p {
+    color: white;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.content1 {
+    border-bottom-color: #A99B81;
+    border-bottom-width: 2px;
+    border-bottom-style: inset;
+    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+
+}

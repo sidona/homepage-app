@@ -7,26 +7,22 @@
         <div class="row" style="margin-left: 20px;margin-right: 100px">
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="{{phMessage}}" data-ng-model="feedSrc">
-
+                    <input type="text" class="form-control" placeholder="{{phMessage}}"
+                           data-ng-model="feedSrc">
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                            {{currentButtonText}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">{{currentButtonText}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
 
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="background-color: lightgoldenrodyellow">
-                            <li ng-repeat="feed in allFeeds" style="background-color: #fffbd5"><a href="#" ng-click="loadFeed($event,feed.url);" style="background-color: #fffbd5">{{feed.titleText}}</a>
-                            </li>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                            <li ng-repeat="feed in allFeeds"><a href="#" ng-click="loadFeed($event,feed.url);">{{feed.titleText}}</a></li>
                         </ul>
 
                     </div>
                     <div class="input-group-btn">
-                        <button ng-click="saveFeed()" class="btn btn-default" data-toggle="tooltip" data-placement="top"
-                                title="Save Feed To Your List" type="button"><span
-                                class="glyphicon glyphicon-save"></span></button>
+                        <button ng-click="saveFeed()" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Save Feed To Your List" type="button"><span class="glyphicon glyphicon-save"</button>
                     </div>
                     <div class="input-group-btn">
-                        <button ng-click="removeAllFeedsFromLocalStorage()" class="btn btn-default" type="button"><span
-                                class="glyphicon glyphicon-remove"></span></button>
+                        <button ng-click="removeAllFeedsFromLocalStorage()" class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"</button>
+                    </div>
                     </div>
 
                 </div>

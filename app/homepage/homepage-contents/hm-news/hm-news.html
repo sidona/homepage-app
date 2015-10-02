@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="panel panel-primary"  style="width: 600px;height: 830px;margin-left: -10px">
+    <div class="panel-heading" style="font-size:large;background-color: black">
+        <strong>News</strong>
+    </div>
+    <div data-ng-controller="FeedCtrl">
+        <div class="panel-body" ng-repeat="feed in feeds | orderBy:'title'" style="height: 170px">
 
-</body>
-</html>
+                <h2><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h2>
+    <span ng-repeat="item in feed.entries">
+        <div class="row content1">
+
+            <strong><a href="{{item.link}}" target="_blank">{{item.title}}</a></strong>
+            <div class="col-md-11"><h5 style="color: black">{{item.contentSnippet}}</h5>(<span>{{item.publishedDate | date:'d-MM-yyyy HH:mm'}}</span>)<br/>
+                </div>
+
+</div>
+	</span>
+        </div>
+
+    </div>
+
+</div>
