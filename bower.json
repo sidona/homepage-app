@@ -26,9 +26,22 @@
     "underscore": "~1.8.3",
     "angular-sanitize": "~1.4.6",
     "angular-dnd": "angular-dragndrop#~1.1.5",
-    "angular-skycons": "~2.0.2"
+    "angular-skycons": "~2.0.2",
+    "angular-fusioncharts": "~0.0.2",
+    "d3": "~3.5.6",
+    "ZingChart-AngularJS": "zingchart-angularjs#~1.0.4",
+    "angular-nvd3": "~1.0.2",
+    "angular-chart.js": "~0.8.4",
+    "angular-charts": "~0.2.7",
+    "angularjs-nvd3-directives": "~0.0.7",
+    "elixirchart": "~0.0.5",
+    "highcharts": "highcharts-release#~4.1.9"
   },
   "resolutions": {
-    "angular": "~1.2.3"
+    "angular": "1.2.26",
+    "d3": "~3.3.10",
+    "nvd3": "~v1.1.15-beta",
+    "angular-route": "1.2.26",
+    "angular-nvd3": "^0.0.9"
   }
 }

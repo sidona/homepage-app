@@ -8,14 +8,13 @@
         <div class="row content1">
             <div class="col-md-8">
                 <ul>
-                    <li><strong><i>Temperature:</i></strong> {{weather.currently.temperature}} C</li>
-                    <li><strong><i>Apparent Temperature: </i></strong>{{weather.currently.apparentTemperature}}</li>
-                    <li><strong><i>Humidity:</i></strong> {{weather.currently.humidity}}</li>
-                    <li><strong><i>Summary:</i></strong> {{weather.currently.summary}}</li>
+                    <li><strong><i>Summary:</i></strong> {{weather.currently.summary}} &#8451</li>
+                    <li><strong><i>Feels like: </i></strong>{{weather.currently.apparentTemperature}}</li>
                 </ul>
             </div>
             <div class="col-md-4">
-                <skycon icon="weather.currently.icon"></skycon>
+                <skycon icon="weather.currently.icon"  class="iconT"></skycon>
+                <li style="font-size: 25px">{{weather.currently.temperature}} &#8451</li>
                 <br></div>
         </div>
         <div class="row">
@@ -25,19 +24,20 @@
         <div class="row content1" ng-repeat="day in weather.daily.data">
             <div class="col-md-8">
                 <ul>
-                    <span ng-non-bindable><strong><i>Date:</i></strong></span>
+                    <span ng-non-bindable></span>
                     <span>{{day.time| timestampToDate | date:'EEEE'}}</span>
-                    <li><strong><i>Temperature: min </i></strong> {{day.temperatureMin}}<strong><i> max</i> </strong>
-                        {{day.temperatureMax}}
+                    <li><strong><i>min </i></strong> {{day.temperatureMin}} &#8451<strong><i> max</i> </strong>
+                        {{day.temperatureMax}} &#8451
                     </li>
 
                 </ul>
             </div>
             <div class="col-md-4">
-                <skycon icon="day.icon"></skycon>
+                <skycon icon="day.icon" class="iconH"></skycon>
                 <br></div>
         </div>
     </div>
+    <a ui-sref="weather" style="color: #ffffff;">See more...</a>
 </div>
 
 

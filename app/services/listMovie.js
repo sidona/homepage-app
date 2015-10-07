@@ -1,9 +1,9 @@
 /**
  * Created by sdonose on 9/28/2015.
  */
-app.factory('listMovie',function(){
+app.factory('listMovie', function () {
 
-    var movies=[
+    var movies = [
         {
             "countries": [
                 "USA"
@@ -29,7 +29,7 @@ app.factory('listMovie',function(){
             "metascore": "80/100",
             "originalTitle": "",
             "plot": "Andy Dufresne is a young and successful banker whose life changes drastically when he is convicted and sentenced to life imprisonment for the murder of his wife and her lover. Set in the 1940s, the film shows how Andy, with the help of his friend Red, the prison entrepreneur, turns out to be a most unconventional prisoner.",
-            "ranking": 1,
+            "ranking": 35,
             "rated": "R",
             "rating": "9.3",
             "releaseDate": "19941014",
@@ -2114,14 +2114,27 @@ app.factory('listMovie',function(){
             "year": "1991"
         }
     ];
-    return{
-        list:function(){
+    return {
+        list: function () {
             return movies;
         },
-        findMovie:function(id){
-            return _.find(movies, function(movie){
-                return movie.id==id
+        findMovie: function (id) {
+            return _.find(movies, function (movie) {
+                return movie.id == id
             })
+        },
+        graph:function(){
+
+            var title=movies.title;
+            var year=movies.year;
+            return[
+                {
+                    values: year,      //values - represents the array of {x,y} data points
+                    key: 'Title', //key  - the name of the series.
+                    color: '#ff7f0e'  //color - optional: choose your own line color.
+                }
+            ]
+
         }
     }
 

@@ -1,7 +1,7 @@
 /**
  * Created by sdonose on 9/22/2015.
  */
-var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop','angular-skycons']);
+var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop','angular-skycons','nvd3','nvd3ChartDirectives','angularCharts']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -18,6 +18,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('weather', {
             url: '/weather',
             templateUrl: 'weather/weather.html'
+        })
+        .state('london', {
+            url: '/weather/london',
+            templateUrl: 'weather/weather-london.html'
+        })
+        .state('sydney', {
+            url: '/weather/sydney',
+            templateUrl: 'weather/weather-sydney.html'
+        })
+        .state('newYork', {
+            url: '/weather/newYork',
+            templateUrl: 'weather/weather-newYork.html'
         })
         .state('news', {
             url: '/news',

@@ -24,7 +24,7 @@
                         $scope.longitude = position.coords.longitude;
                         //console.log(latitude);
                         // console.log(longitude);
-                        $http.jsonp("https://api.forecast.io/forecast/cdfba6aefd8d7913b292cfdd579abf0b/"+$scope.latitude+","+$scope.longitude+"?metric&callback=JSON_CALLBACK")
+                        $http.jsonp("https://api.forecast.io/forecast/cdfba6aefd8d7913b292cfdd579abf0b/"+$scope.latitude+","+$scope.longitude+"?units=si&exclude=flags=metric&callback=JSON_CALLBACK")
                             .success(function(data, status, headers, config) {
                                 $scope.weather = data;
                             });

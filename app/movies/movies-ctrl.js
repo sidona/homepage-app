@@ -29,15 +29,51 @@ app.controller('moviesCtrl', function ($scope, $http) {
 
 
 });
-app.controller('movieListCtrl',['$scope','listMovie',function($scope,listMovie){
+app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$filter,listMovie){
     $scope.showData = function( ) {
         $scope.curPage = 0;
         $scope.pageSize = 3;
         $scope.movies = listMovie.list();
     }
+
+
     $scope.numberOfPages = function() {
         return Math.ceil($scope.movies.length / $scope.pageSize);
     };
+
+
+    //$scope.lineChartYData=movies.year
+   // $scope.lineChartXData=movies.title
+       // $scope.data=listMovie.list();
+    var orderProductAmount = $filter("orderBy")(listMovie.list());
+    var filteredProductsAmount = $filter("limitTo")(orderProductAmount, 20);
+
+
+    var chartDataAmount = [];
+    for (var i = 0; i < filteredProductsAmount.length; i++) {
+
+        chartDataAmount.push({
+            x: filteredProductsAmount[i].title,
+            y: [filteredProductsAmount[i].ranking]
+            //filteredProductsAmount[i].price]
+            //filteredProductsAmount[i].marginAmount]
+        });
+    }
+    $scope.dataAmount = {
+        series: ["ranking"],
+        data: chartDataAmount
+    };
+
+    /*$scope.xFunction = function () {
+        return function (d) {
+            return d.title;
+        };
+    }
+    $scope.yFunction = function () {
+        return function (d) {
+            return d.year;
+        };
+    }*/
 
 }])
 

@@ -1,7 +1,96 @@
-.well{
-    background-color: #fffbd5;
-    position: absolute;
-    margin-left: 150px;
-    margin-right: 50px;
-    margin-top: 50px;
+canvas{
+    display: inline-block;
+    vertical-align: baseline;
+    height: 40px;
+    width: 40px;
+
+}
+.icon {
+    height: 20px;
+    width: 20px;
+
+}
+.iconT{
+    height: 70px;
+    width: 70px;
+
+}
+.iconD{
+    height: 30px;
+    width: 30px;
+}
+.well1{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 5px;
+    margin-right: 0px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    margin-bottom: 20px;
+}
+.table{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    margin-left: 10px;
+    margin-right: 80px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    max-width: 97.5%;
+    margin-top:20px;
+
+}
+.well2{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 140px;
+    background-color: rgba(0, 0, 0, 0.52);
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.detail{
+    margin-left: 160px;
+}
+.iconW{
+    margin-top: 40px;
+
+
+}
+.table1{
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.table2{
+    margin-left: 190px;
+    margin-right: 190px;
+    text-align: start;
+}
+.details{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 140px;
+    margin-right: 200px;
+    margin-top: 0px;
+    background-color: rgba(117, 106, 105, 0.79);
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5%;
+}
+.rowW{
+    border-bottom-color: white;
 }
