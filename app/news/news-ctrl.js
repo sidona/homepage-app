@@ -1,7 +1,8 @@
 
 
-app.controller("newsCtrl", ['$scope','newsService', newsCtrl]);
-function newsCtrl($scope, FeedService)
+app.controller("newsCtrl", ['$scope','FeedService', FeedCtrl]);
+
+function FeedCtrl($scope, FeedService)
 {
 
     retrieveFromLocalStorage();
@@ -44,7 +45,7 @@ function newsCtrl($scope, FeedService)
 
 
         localStorage.setItem('feeds', angular.toJson(feeds));
-        console.log(angular.toJson(feeds));
+        console.log("tojson ",angular.toJson(feeds));
         console.log("wrote feeds to localStorage");
     }
 
@@ -76,9 +77,8 @@ function newsCtrl($scope, FeedService)
     function loadDefaultFeeds()
     {
         $scope.allFeeds = [{titleText:"Load (from textbox)",url:""},
-            {titleText:"CodeProject C#",url:"http://www.codeproject.com/webservices/articlerss.aspx?cat=3"},
-            {titleText:"radu ",url:"http://www.radufconstantinescu.ro/feeds/posts/default"},
-            {titleText:"Dr. Dobb's",url:"http://www.drdobbs.com/rss/all"}
+            {titleText:"Radu",url:"http://www.radufconstantinescu.ro/feeds/posts/default"},
+            {titleText:"CNN",url:"http://rss.cnn.com/rss/cnn_topstories.rss"}
         ];
     }
     $scope.removeAllFeedsFromLocalStorage = removeAllFeedsFromLocalStorage;

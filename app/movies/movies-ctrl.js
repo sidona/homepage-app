@@ -32,7 +32,7 @@ app.controller('moviesCtrl', function ($scope, $http) {
 app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$filter,listMovie){
     $scope.showData = function( ) {
         $scope.curPage = 0;
-        $scope.pageSize = 3;
+        $scope.pageSize = 6;
         $scope.movies = listMovie.list();
     }
 
@@ -46,7 +46,7 @@ app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$
    // $scope.lineChartXData=movies.title
        // $scope.data=listMovie.list();
     var orderProductAmount = $filter("orderBy")(listMovie.list());
-    var filteredProductsAmount = $filter("limitTo")(orderProductAmount, 20);
+    var filteredProductsAmount = $filter("limitTo")(orderProductAmount, 3);
 
 
     var chartDataAmount = [];
@@ -74,6 +74,17 @@ app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$
             return d.year;
         };
     }*/
+
+    $scope.filter = "$";
+    $scope.search = {title:'', ranking:'', $:'',rating:'',year:''};
+    $scope.changeFilterTo = function(pr) {
+        $scope.filter = pr;
+    }
+    $scope.mySortFunction = function(item) {
+        if(isNaN(item[$scope.sortExpression]))
+            return item[$scope.sortExpression];
+        return parseInt(item[$scope.sortExpression]);
+    }
 
 }])
 

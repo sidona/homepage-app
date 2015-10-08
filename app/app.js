@@ -1,7 +1,7 @@
 /**
  * Created by sdonose on 9/22/2015.
  */
-var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event', 'ngAnimate', 'ngResource','underscore','ngSanitize','lrDragNDrop','angular-skycons','nvd3','nvd3ChartDirectives','angularCharts']);
+var app = angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.map', 'ui.event','ngResource', 'ngAnimate','underscore','ngSanitize','lrDragNDrop','angular-skycons','nvd3','nvd3ChartDirectives','angularCharts']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -11,10 +11,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/',
             templateUrl: 'homepage/homepage.html'
         })
-        .state('movies', {
-            url: '/movies',
-            templateUrl: 'movies/movies.html'
-        })
+
         .state('weather', {
             url: '/weather',
             templateUrl: 'weather/weather.html'
@@ -35,12 +32,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/news',
             templateUrl: 'news/news.html'
         })
-        .state('listMovie', {
-            url: '/listMovie',
+        .state('movie', {
+            url: '/movie',
             templateUrl: 'movies/listMovie.html'
         })
         .state('movieDetail', {
-            url: '/listMovie/:id',
+            url: '/movie/:id',
             templateUrl: 'movies/movie-detail.html',
             controller: 'movieDetailCtrl'
             /*resolve:   {

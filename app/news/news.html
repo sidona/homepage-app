@@ -1,4 +1,3 @@
-
 <div data-ng-controller="newsCtrl">
 
     <form class="form-horizontal col-md-12" role="form">
@@ -8,10 +7,10 @@
                     <input type="text" class="form-control" placeholder="{{phMessage}}"
                            data-ng-model="feedSrc">
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">{{currentButtonText}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">{{currentButtonText}}<span class="caret"></span></button>
 
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li ng-repeat="feed in allFeeds"><a href="#" ng-click="loadFeed($event,feed.url);">{{feed.titleText}}</a></li>
+                            <li ng-repeat="feed in allFeeds"><a href="#" ng-click="loadFeed($event,feed.url)">{{feed.titleText}}</a></li>
                         </ul>
 
                     </div>
@@ -21,10 +20,10 @@
                     <div class="input-group-btn">
                         <button ng-click="removeAllFeedsFromLocalStorage()" class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
                     </div>
-                    <!-- /btn-group -->
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
+
+                </div>
+            </div>
+        </div>
 
         <div class = "row top-buffer">
             <div class="col-md-6" ng-show="feeds.length > 0">
@@ -34,10 +33,10 @@
                         <button type="button" class="btn btn-default" data-ng-click="clearText()">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
-                    </div><!-- /btn-group -->
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 
 

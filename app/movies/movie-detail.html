@@ -12,6 +12,10 @@
           <div class="col-md-10">{{movieDetail.rating }}</div>
         </div>
         <div class="row">
+          <div class="col-md-2">Ranking:</div>
+          <div class="col-md-10">{{movieDetail.ranking }}</div>
+        </div>
+        <div class="row">
           <div class="col-md-2">Year:</div>
           <div class="col-md-6">{{movieDetail.year }}</div>
         </div>
@@ -25,15 +29,15 @@
         </div>
         <div class="row">
           <div class="col-md-2">Runtime:</div>
-          <div class="col-md-10">{{movieDetail.runtime}}</div>
+          <div class="col-md-10"><span ng-repeat="runtime in movieDetail.runtime">{{runtime}}</span></div>
         </div>
         <div class="row">
           <div class="col-md-2">languages:</div>
-          <div class="col-md-10">{{movieDetail.languages}}</div>
+          <div class="col-md-10"><span ng-repeat="languages in movieDetail.languages">{{languages}}</span></div>
         </div>
         <div class="row">
           <div class="col-md-2">Countries:</div>
-          <div class="col-md-10">{{movieDetail.countries}}</div>
+          <div class="col-md-10"><span ng-repeat="countries in movieDetail.countries">{{countries}}</span></div>
         </div>
         <div class="row">
           <div class="col-md-2">Votes IMDB:</div>

@@ -1,29 +1,44 @@
 <div ng-controller="movieListCtrl">
-    <div class="well">
+    <div class="col-md-3">
+        <div class="wellMS">
+            <hr>
 
-        <div class="panel-body">
-
-            <div class="col-md-12">
-                <div ac-chart="'bar'"
-                     ac-data="dataAmount"
-                     ac-config="configAmount"
-                     class="chart"></div>
-            </div>
-        </div>
-        </div>
-    <div class="col-md-6">
-        <input type="text" ng-model="search" style="margin-left: 100px">
-        <button type="submit">Filter</button>
-        </br>
-
-        <div ng-class="{'toggled':movieListIsToggle}" class="movieListContainer" ng-init="showData()">
-            <ul class="movie">
-                <li ng-repeat="movie in movies | filter:search | pagination: curPage * pageSize | limitTo: pageSize">
-
-                    <img ng-src="{{movie.urlPoster}}" style="width: 150px">
-                    <a ui-sref="movieDetail({id:movie.id})" style="color: white">{{movie.title}}</a>
-                </li>
+            <label>Filter movie</label> <input type="text" ng-model="search[filter]" style="color: black"> by {{filter}}
+            <br>
+            <ul>
+                <li><a href="" ng-click="changeFilterTo('title')" style="color: white">Title</a></li>
+                <li><a href="" ng-click="changeFilterTo('ranking')" style="color: white">ranking</a></li>
+                <li><a href="" ng-click="changeFilterTo('rating')" style="color: white">Rating</a></li>
+                <li><a href="" ng-click="changeFilterTo('year')" style="color: white">Year</a></li>
             </ul>
+
+            <hr>
+            <div>Sort by:
+                <select ng-model="sortExpression">
+                    <option value="tile" style="color: black">Title</option>
+                    <option value="ranking" style="color: black">Ranking</option>
+                    <option value="votes" style="color: black">Votes</option>
+                    <option value="year" style="color: black">Year</option>
+                    <option value="rating" style="color: black">Rating</option>
+                </select>
+            </div>
+            <div ng-include="'movies/movies.html'"></div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+
+        <div class="movieListContainer" ng-init="showData()">
+
+            <div class="movieList"
+                 ng-repeat="movie in movies | orderBy:mySortFunction  | filter:search | pagination: curPage * pageSize | limitTo: pageSize"
+                 style="float:left">
+
+                <img ng-src="{{movie.urlPoster}}" style="width: 110px">
+                <a ui-sref="movieDetail({id:movie.id})" style="color: white;float: right;">{{movie.title}}</a>
+            </div>
+
             <div class="pagination pagination-centered" ng-show="movies.length">
                 <ul class="pagination-controle pagination">
                     <li>
@@ -45,6 +60,16 @@
         </div>
 
     </div>
-</div>
+    <div class="col-md-3">
+        <div class="wellM">
+
+            <div ac-chart="'bar'"
+                 ac-data="dataAmount"
+                 ac-config="configAmount"
+                 class="chart"></div>
+
+
+        </div>
+    </div>
 
 </div>

@@ -42,7 +42,8 @@ li{
 }
 .movieListContainer{
     width: 100%;
-    transition: width 5s ease;
+    text-align: center;
+    height: 100%;
 }
 .css-class-add, .css-class-remove {
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -71,6 +72,14 @@ form{
 .panel-body {
     padding: 20px;
     margin-left: 0px;
+}
+.movieList {
+    margin-left: 10px;
+    width: 260px;
+    padding: 25px;
+    border: 1px solid #fffbe0;
+    margin: 25px;
+    height:240px;
 }
 
 .css-class,
@@ -133,15 +142,41 @@ li {
     padding-bottom: 8px;
 }
 .chart{
-    width: 100%;
+    width: 120%;
     height: 300px;
 }
+.wellM {
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    max-width: 97.5%;
+    margin-top: 20px;
 
-
+}
+.wellMS{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    max-width: 97.5%;
+    margin-top: 20px;
+    height:700px
+}
 .movie-poster {
     float: left;
-    width: 150px;
-    margin-right: 10px;
+    width: 90px;
+
     -moz-animation-delay: 1s;
     -webkit-animation-delay: 1s;
 }
