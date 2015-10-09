@@ -10,7 +10,7 @@
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">{{currentButtonText}}<span class="caret"></span></button>
 
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li ng-repeat="feed in allFeeds"><a href="#" ng-click="loadFeed($event,feed.url)">{{feed.titleText}}</a></li>
+                            <li ng-repeat="feed in allFeeds" ng-click="loadFeed($event,feed.url)">{{feed.titleText}}</li>
                         </ul>
 
                     </div>
