@@ -20,6 +20,19 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
                 }]
             }
         })
+        .state('authenticated', {
+            url: '/authenticated',
+            templateUrl: 'partial-authenticated.html',
+            resolve: {
+                "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
+                    // $requireAuth returns a promise if authenticated, rejects if not
+                    var ref = new Firebase(firebaseUrl);
+                    var authObj = $firebaseAuth(ref);
+
+                    return authObj.$requireAuth();
+                }]
+            }
+        })
 
 
         .state('weather', {
@@ -77,7 +90,6 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
             url: '/homepage/movie/:id',
             templateUrl: 'movies/movie-detail.html',
             controller: 'movieDetailCtrl',
-
             /*resolve:   {
 
              id:function($stateParams) {

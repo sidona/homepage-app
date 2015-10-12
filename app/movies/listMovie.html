@@ -13,6 +13,10 @@
             </ul>
 
             <hr>
+            <form ng-submit="addMovie()">
+                <input ng-model="newMovie" style="color: black" />
+                <button type="submit">Add Movie</button>
+            </form>
             <div>Sort by:
                 <select ng-model="sortExpression">
                     <option value="tile" style="color: black">Title</option>
@@ -32,11 +36,12 @@
         <div class="movieListContainer" ng-init="showData()">
 
             <div class="movieList"
-                 ng-repeat="movie in movies | orderBy:mySortFunction  | filter:search | pagination: curPage * pageSize | limitTo: pageSize"
+                 ng-repeat="(id, movie) in movies track by $index | orderBy:mySortFunction  | filter:search "
                  style="float:left">
 
+                <button ng-click="movies.$remove(movie)">Delete</button>
                 <img ng-src="{{movie.urlPoster}}" style="width: 110px">
-                <a ui-sref="movieDetail({id:movie.id})" style="color: white;float: right;">{{movie.title}}</a>
+                <a ui-sref="movieDetail({id:$index})" style="color: white;float: right;">{{movie.title}}</a>
             </div>
 
             <div class="pagination pagination-centered" ng-show="movies.length">

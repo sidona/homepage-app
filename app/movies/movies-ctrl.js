@@ -29,12 +29,32 @@ app.controller('moviesCtrl', function ($scope, $http) {
 
 
 });
-app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$filter,listMovie){
+
+app.controller('movieListCtrl',['$scope','$filter','$firebase','firebaseUrl','$firebaseArray',function($scope,$filter,$firebase,firebaseUrl,$firebaseArray){
+    var fb = new Firebase(firebaseUrl+"/movie");
+
+    /*$scope.movie = null;
+    $scope.movies = $firebase(fb, {recordFactory: listMovie}).$asArray();
+    $scope.loadMovie = function (movie) {
+        $scope.movie = movie;
+    }*/
+
+    // changes the date on a book record, note that we're working
+    // with Date objects here
+
     $scope.showData = function( ) {
         $scope.curPage = 0;
         $scope.pageSize = 6;
-        $scope.movies = listMovie.list();
+        $scope.movies = $firebaseArray(fb);
     }
+    $scope.addMovie = function() {
+        $scope.movies.$add({
+            title: $scope.newMovie
+
+
+        });
+        console.log('add');
+    };
 
 
     $scope.numberOfPages = function() {
@@ -45,7 +65,7 @@ app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$
     //$scope.lineChartYData=movies.year
    // $scope.lineChartXData=movies.title
        // $scope.data=listMovie.list();
-    var orderProductAmount = $filter("orderBy")(listMovie.list());
+   /* var orderProductAmount = $filter("orderBy")(listMovie.list());
     var filteredProductsAmount = $filter("limitTo")(orderProductAmount, 3);
 
 
@@ -88,7 +108,14 @@ app.controller('movieListCtrl',['$scope','$filter','listMovie',function($scope,$
 
 }])
 
-app.controller('movieDetailCtrl',['$scope','$stateParams', 'listMovie',function($scope,$stateParams,listMovie){
-    $scope.movieDetail=listMovie.findMovie($stateParams.id);
+
+
+
+app.controller('movieDetailCtrl',['$scope','$stateParams','$firebaseObject','firebaseUrl',function($scope,$stateParams,$firebaseObject,firebaseUrl){
+   // $scope.movieDetail=listMovie.findMovie($stateParams.id);
+
+    var fbId = new Firebase(firebaseUrl+'/movie/'+$stateParams.id);
+    $scope.movieDetail = $firebaseObject(fbId);
+
 }])
 
