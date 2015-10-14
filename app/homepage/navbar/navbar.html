@@ -5,42 +5,51 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-left">
                 <li class="active"><a ui-sref="homepage">MyHomepage <span class="sr-only">(current)</span></a></li>
-
             </ul>
 
             <ul class="nav navbar-nav pull-right">
-                <li><a ui-sref="weather" >weather</a></li>
+                <li><a ui-sref="weather">weather</a></li>
 
-                <li><a ui-sref="movie" >movie</a></li>
+                <li><a ui-sref="movie">movie</a></li>
 
-                <li style="text-align: left"><a ui-sref="news" ng-click="toggleModal()">news</a></li>
-                <li style="text-align: left"><button ng-click="toggleModal()" class="btn btn-default">Login</button></li>
+                <li style="text-align: left"><a ui-sref="news">news</a></li>
+                <li style="text-align: left">
+                    <a ng-click="toggleModal()">Login</a>
+                </li>
 
                 <li ng-controller="loginController as vm">
                     <modal title="Login" visible="showModal">
-                    <button class="button button--isi button--border-thin button--size-s button--round-s"
-                            ng-click="vm.googleLogin()" ng-show="!vm.isLoggedIn">
-                        <i class="fa fa-google-plus-square fa-2x"></i>
-                        <span>Google+</span>
-                    </button>
-                    <button class="button button--isi button--border-thin button--size-s button--round-s"
-                            ng-click="vm.facebookLogin()" ng-show="!vm.isLoggedIn">
-                        <i class="fa fa-facebook fa-2x"></i>
-                        <span>Facebook</span>
-                    </button>
-                </modal>
-                    <a href="#/homepage.html" ng-click="vm.logout()" ng-show="vm.isLoggedIn">
+                        <button class="button button--isi button--border-thin button--size-s button--round-s"
+                                ng-click="vm.googleLogin()" ng-show="!vm.isLoggedIn">
+                            <i class="fa fa-google-plus-square fa-2x"></i>
+                            <span>Google+</span>
+                        </button>
+                        <button class="button button--isi button--border-thin button--size-s button--round-s"
+                                ng-click="vm.facebookLogin()" ng-show="!vm.isLoggedIn">
+                            <i class="fa fa-facebook fa-2x"></i>
+                            <span>Facebook</span>
+                        </button>
+                    </modal>
+                    <a ui-sref="homepage" ng-click="vm.logout()" ng-show="vm.isLoggedIn">
                         <i class="fa fa-sign-out fa-2x"></i>
-                        <span>Logout</span>
-                    </button>
+                        <span>Logout </span>
                     </a>
                 </li>
+                <li>
+                    <div class="nav-collapse collapse" ng-hide="authData.facebook == null" ng-model="debug">
+                        <div class="pull-right">
+						<span class="navbar-text ">
+	              			Logged in as <a ng-href="#" class="navbar-link">{{authData.facebook.displayName}}</a>
+	            		</span>
+                            <span>{{auth.user.profileImageURL}}</span>
+                            <button class="btn btn-mini btn-inverse" style="margin-top:0px;" type="button"
+                                    ng-click="logout()">Logout
+                            </button>
+                        </div>
 
-
-
+                    </div>
+                </li>
             </ul>
-
-
         </div>
         <!-- /.navbar-collapse -->
     </div>

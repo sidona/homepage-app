@@ -1,6 +1,3 @@
-/**
- * Created by sdonose on 9/22/2015.
- */
 var app = angular.module('app', ['ui.bootstrap', 'firebase', 'ui.router', 'ui.map', 'ui.event', 'ngResource', 'ngAnimate', 'underscore', 'ngSanitize', 'lrDragNDrop', 'angular-skycons', 'nvd3', 'nvd3ChartDirectives', 'angularCharts'])
     .constant('firebaseUrl', "https://myhomepage.firebaseio.com/");
 app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
@@ -12,26 +9,19 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
             templateUrl: 'homepage/homepage.html',
             resolve: {
                 "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
-                    // $requireAuth returns a promise if authenticated, rejects if not
+
                     var ref = new Firebase(firebaseUrl);
                     var authObj = $firebaseAuth(ref);
 
                     return authObj.$requireAuth();
                 }]
             }
+
         })
         .state('authenticated', {
             url: '/authenticated',
-            templateUrl: 'partial-authenticated.html',
-            resolve: {
-                "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
-                    // $requireAuth returns a promise if authenticated, rejects if not
-                    var ref = new Firebase(firebaseUrl);
-                    var authObj = $firebaseAuth(ref);
+            templateUrl: 'partial-authenticated.html'
 
-                    return authObj.$requireAuth();
-                }]
-            }
         })
 
 
@@ -40,13 +30,14 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
             templateUrl: 'weather/weather.html',
             resolve: {
                 "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
-                    // $requireAuth returns a promise if authenticated, rejects if not
+
                     var ref = new Firebase(firebaseUrl);
                     var authObj = $firebaseAuth(ref);
 
                     return authObj.$requireAuth();
                 }]
             }
+
         })
         .state('london', {
             url: '/homepage/weather/london',
@@ -65,33 +56,35 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
             templateUrl: 'news/news.html',
             resolve: {
                 "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
-                    // $requireAuth returns a promise if authenticated, rejects if not
+
                     var ref = new Firebase(firebaseUrl);
                     var authObj = $firebaseAuth(ref);
 
                     return authObj.$requireAuth();
                 }]
             }
+
+
         })
         .state('movie', {
             url: '/homepage/movie',
             templateUrl: 'movies/listMovie.html',
             resolve: {
                 "currentAuth": ["$firebaseAuth", function ($firebaseAuth) {
-                    // $requireAuth returns a promise if authenticated, rejects if not
+
                     var ref = new Firebase(firebaseUrl);
                     var authObj = $firebaseAuth(ref);
 
                     return authObj.$requireAuth();
                 }]
             }
+
         })
         .state('movieDetail', {
             url: '/homepage/movie/:id',
             templateUrl: 'movies/movie-detail.html',
-            controller: 'movieDetailCtrl',
+            controller: 'movieDetailCtrl'
             /*resolve:   {
-
              id:function($stateParams) {
              return $stateParams.id;
              },
@@ -101,7 +94,6 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
              })
              }
              }
-
              */
 
         })
@@ -109,22 +101,19 @@ app.config(function ($stateProvider, $urlRouterProvider, firebaseUrl) {
 
 })
 /*app.run(['$rootScope', '$firebaseAuth', 'firebaseUrl', function ($rootScope, $firebaseAuth, firebaseUrl) {
-    $rootScope.$on('$locationChangeStart', function ($event, nextLocation, previousLocation) {
-        // check if user is authenticated
-        var checkAuth = function () {
-            // $requireAuth returns a promise if authenticated, rejects if not
-            var ref = new Firebase(firebaseUrl);
-            var authObj = $firebaseAuth(ref);
-
-            return authObj.$requireAuth();
-        };
-
-        checkAuth().then(function (isAuthenticated) {
-            console.log('isAuthenticated', isAuthenticated);
-            if (checkAuth()) {
-                console.log(checkAuth());
-            }
-        });
-
-    });
-}]);*/
+ $rootScope.$on('$locationChangeStart', function ($event, nextLocation, previousLocation) {
+ // check if user is authenticated
+ var checkAuth = function () {
+ // $requireAuth returns a promise if authenticated, rejects if not
+ var ref = new Firebase(firebaseUrl);
+ var authObj = $firebaseAuth(ref);
+ return authObj.$requireAuth();
+ };
+ checkAuth().then(function (isAuthenticated) {
+ console.log('isAuthenticated', isAuthenticated);
+ if (checkAuth()) {
+ console.log(checkAuth());
+ }
+ });
+ });
+ }]);*/

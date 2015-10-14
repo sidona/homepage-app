@@ -14,7 +14,7 @@
 
             <hr>
             <form ng-submit="addMovie()">
-                <input ng-model="newMovie" style="color: black" />
+                <input ng-model="newMovie" style="color: black"/>
                 <button type="submit">Add Movie</button>
             </form>
             <div>Sort by:
@@ -33,7 +33,7 @@
     <div class="col-md-6">
 
 
-        <div class="movieListContainer" ng-init="showData()">
+        <div class="movieListContainer">
 
             <div class="movieList"
                  ng-repeat="(id, movie) in movies track by $index | orderBy:mySortFunction  | filter:search "

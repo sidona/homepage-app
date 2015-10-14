@@ -1,22 +1,25 @@
-.hm-movie{
+.hm-movie {
     background-color: transparent;
     border: 1px solid transparent;
 }
-img{
+
+img {
     width: 70px;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto
 
 }
+
 element.style {
     width: 70px;
 }
-.ScrollStyle
-{
+
+.ScrollStyle {
     max-height: 750px;
     overflow-y: scroll;
 }
+
 p {
     color: white;
     margin-left: 30px;
@@ -30,6 +33,5 @@ p {
     border-bottom-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-
 
 }

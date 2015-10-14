@@ -4,13 +4,13 @@
     </div>
 
     <div class="panel-body" lr-drag-src="reorder" lr-drop-target="reorder"
-         ng-repeat="movie in movies | limitTo: moviesLimit()" style="height: 120px">
+         ng-repeat="(id, movie) in movies track by $index | limitTo: moviesLimit()" style="height: 120px">
 
         <div class="row content1">
             <div class="col-md-1"><img clas=img" ng-src="{{movie.urlPoster}}" style="width: 60px;margin-right: 1px ">
             </div>
-            <div class="col-md-11"><strong><a ui-sref="movieDetail({id:movie.id})"
-                                              style="color: #fffaef;margin-left: 20px">{{movie.title}}</a></strong>
+            <div class="col-md-11"><strong> <a ui-sref="movieDetail({id:$index})"
+                                               style="color: #fffaef;margin-left: 20px">{{movie.title}}</a></strong>
 
                 <p style="color: #122b40">Detail: {{movie.simplePlot}}</p></div>
         </div>

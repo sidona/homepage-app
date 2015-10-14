@@ -32,20 +32,26 @@
                                 <div class="col-md-2" style="color: #f8fcd6">Feels like:
                                     {{london.currently.apparentTemperature}} &#8451
                                 </div>
-                                <div class="col-md-2" style="color: #f8fcd6">Humidity: {{london.currently.humidity *100}}
+                                <div class="col-md-2" style="color: #f8fcd6">Humidity: {{london.currently.humidity
+                                    *100}}
                                     %
                                 </div>
-                                <div class="col-md-2" style="color: #f8fcd6">Pressure: {{london.currently.pressure}}</div>
+                                <div class="col-md-2" style="color: #f8fcd6">Pressure: {{london.currently.pressure}}
+                                </div>
                             </div>
                             <div class="detail">
-                                <p style="font-size: 17px">Tonight - Low {{london.daily.data[0].temperatureMin}} &#8451 at
+                                <p style="font-size: 17px">Tonight - Low {{london.daily.data[0].temperatureMin}} &#8451
+                                    at
                                     {{london.daily.data[0].temperatureMinTime |timestampToDate | date:'h a'}}.
                                     Winds speed {{london.daily.data[0].windSpeed}} mph.<br/>
-                                    Today - {{london.daily.data[0].summary}}. High {{london.daily.data[0].temperatureMax}}
+                                    Today - {{london.daily.data[0].summary}}. High
+                                    {{london.daily.data[0].temperatureMax}}
                                     &#8451 at {{london.daily.data[0].temperatureMaxTime |timestampToDate | date:'h a'}}.
                                     Chance of rain {{london.daily.data[0].precipProbability *100}}%. <br/>
-                                    The sun sunrise at {{london.daily.data[0].sunriseTime | timestampToDate |date:'HH:mm a'}}
-                                    and sunset at {{london.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm a'}} </p>
+                                    The sun sunrise at {{london.daily.data[0].sunriseTime | timestampToDate |date:'HH:mm
+                                    a'}}
+                                    and sunset at {{london.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm a'}}
+                                </p>
                             </div>
                     </ul>
                 </div>
@@ -91,24 +97,34 @@
                 <div class="rowW" ng-repeat="day in london.daily.data">
                     <div class="row" style="margin-left: 70px">
                         <div class="col-md-2">{{day.time| timestampToDate | date:'mediumDate'}}</div>
-                        <div class="col-md-2"> <skycon icon="day.icon" class="iconD"></skycon></div>
+                        <div class="col-md-2">
+                            <skycon icon="day.icon" class="iconD"></skycon>
+                        </div>
                         <div class="col-md-2">min/max: {{day.temperatureMin}}&#8451 /{{day.temperatureMax}}&#8451</div>
-                        <div class="col-md-2"><button data-ng-click="show = !show">detail</button> </div>
+                        <div class="col-md-2">
+                            <button data-ng-click="show = !show">detail</button>
+                        </div>
                     </div>
                     <div class="details" ng-show="show">
                         <p> {{day.summary}}</p>
+
                         <p>Chance of rain {{day.precipProbability *100}}%</p>
+
                         <div class="col-md-6">
                             <div class="row1">
                                 <li>{{day.time| timestampToDate | date:'EEEE'}}</li>
-                                <li> <skycon icon="day.icon" class="iconD"></skycon> </li>
+                                <li>
+                                    <skycon icon="day.icon" class="iconD"></skycon>
+                                </li>
                                 <li>{{day.temperatureMax}} &#8451</li>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row1">
                                 <li>{{day.time| timestampToDate | date:'EEEE'}} Night</li>
-                                <li><skycon icon="day.icon" class="iconD"></skycon> </li>
+                                <li>
+                                    <skycon icon="day.icon" class="iconD"></skycon>
+                                </li>
                                 <li>{{day.temperatureMin}} &#8451</li>
                             </div>
                         </div>

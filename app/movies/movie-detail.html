@@ -1,56 +1,58 @@
 <div class="panel panel-primary">
-  <div class="panel-heading" style="font-size:small;background-color: black">
-    <strong>Title {{movieDetail.title}}</strong>
-  </div>
-
-  <div class="panel-body">
-    <div class="row" >
-      <div class="col-md-6">
-
-        <div class="row">
-          <div class="col-md-2">Rating:</div>
-          <div class="col-md-10">{{movieDetail.rating }}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Ranking:</div>
-          <div class="col-md-10">{{movieDetail.ranking }}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Year:</div>
-          <div class="col-md-6">{{movieDetail.year }}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Genres:</div>
-          <div class="col-md-10"><span ng-repeat="genre in movieDetail.genres">{{genre}} </span></div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Description:</div>
-          <div class="col-md-10">{{movieDetail.plot}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Runtime:</div>
-          <div class="col-md-10"><span ng-repeat="runtime in movieDetail.runtime">{{runtime}}</span></div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">languages:</div>
-          <div class="col-md-10"><span ng-repeat="languages in movieDetail.languages">{{languages}}</span></div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Countries:</div>
-          <div class="col-md-10"><span ng-repeat="countries in movieDetail.countries">{{countries}}</span></div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">Votes IMDB:</div>
-          <div class="col-md-10">{{movieDetail.votes}}</div>
-        </div>
-
-      <div class="col-md-6">
-        <img class="center-block img-responsive"
-             style="width:100px;margin:2px;"
-             ng-src="{{movieDetail.urlPoster}}">
-      </div>
+    <div class="panel-heading" style="font-size:small;background-color: black">
+        <strong>Title {{movieDetail.title}}</strong>
     </div>
-  </div>
 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-2">Rating:</div>
+                    <div class="col-md-10">{{movieDetail.rating }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Ranking:</div>
+                    <div class="col-md-10">{{movieDetail.ranking }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Year:</div>
+                    <div class="col-md-6">{{movieDetail.year }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Genres:</div>
+                    <div class="col-md-10"><span ng-repeat="genre in movieDetail.genres">{{genre}} </span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Description:</div>
+                    <div class="col-md-10">{{movieDetail.plot}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Runtime:</div>
+                    <div class="col-md-10"><span ng-repeat="runtime in movieDetail.runtime">{{runtime}}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">languages:</div>
+                    <div class="col-md-10"><span ng-repeat="languages in movieDetail.languages">{{languages}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Countries:</div>
+                    <div class="col-md-10"><span ng-repeat="countries in movieDetail.countries">{{countries}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Votes IMDB:</div>
+                    <div class="col-md-10">{{movieDetail.votes}}</div>
+                </div>
+
+                <div class="col-md-6">
+                    <img class="center-block img-responsive"
+                         style="width:100px;margin:2px;"
+                         ng-src="{{movieDetail.urlPoster}}">
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
-  </div>

@@ -27,27 +27,28 @@ app.controller('moviesCtrl', function ($scope, $http) {
     }
 
 
-
 });
 
-app.controller('movieListCtrl',['$scope','$filter','$firebase','firebaseUrl','$firebaseArray',function($scope,$filter,$firebase,firebaseUrl,$firebaseArray){
-    var fb = new Firebase(firebaseUrl+"/movie");
+app.controller('movieListCtrl', ['$scope', '$filter', '$firebase', 'firebaseUrl', 'listMovie', function ($scope, $filter, $firebase, firebaseUrl, listMovie) {
+    var fb = new Firebase(firebaseUrl + "/movie");
 
     /*$scope.movie = null;
-    $scope.movies = $firebase(fb, {recordFactory: listMovie}).$asArray();
-    $scope.loadMovie = function (movie) {
-        $scope.movie = movie;
-    }*/
+     $scope.movies = $firebase(fb, {recordFactory: listMovie}).$asArray();
+     $scope.loadMovie = function (movie) {
+     $scope.movie = movie;
+     }*/
 
     // changes the date on a book record, note that we're working
     // with Date objects here
 
-    $scope.showData = function( ) {
-        $scope.curPage = 0;
-        $scope.pageSize = 6;
-        $scope.movies = $firebaseArray(fb);
-    }
-    $scope.addMovie = function() {
+    /*$scope.showData = function( ) {
+     $scope.curPage = 0;
+     $scope.pageSize = 6;
+
+
+     }*/
+    $scope.movies = listMovie(fb);
+    $scope.addMovie = function () {
         $scope.movies.$add({
             title: $scope.newMovie
 
@@ -56,16 +57,16 @@ app.controller('movieListCtrl',['$scope','$filter','$firebase','firebaseUrl','$f
         console.log('add');
     };
 
+    /*
+     $scope.numberOfPages = function() {
+     return Math.ceil($scope.listMovie(fb).length / $scope.pageSize);
+     };
 
-    $scope.numberOfPages = function() {
-        return Math.ceil($scope.movies.length / $scope.pageSize);
-    };
-
-
-    //$scope.lineChartYData=movies.year
-   // $scope.lineChartXData=movies.title
-       // $scope.data=listMovie.list();
-   /* var orderProductAmount = $filter("orderBy")(listMovie.list());
+     */
+    $scope.lineChartYData = listMovie(fb).year;
+    $scope.lineChartXData = listMovie(fb).title
+    $scope.data = listMovie(fb);
+    var orderProductAmount = $filter("orderBy")(listMovie(fb));
     var filteredProductsAmount = $filter("limitTo")(orderProductAmount, 3);
 
 
@@ -84,24 +85,14 @@ app.controller('movieListCtrl',['$scope','$filter','$firebase','firebaseUrl','$f
         data: chartDataAmount
     };
 
-    /*$scope.xFunction = function () {
-        return function (d) {
-            return d.title;
-        };
-    }
-    $scope.yFunction = function () {
-        return function (d) {
-            return d.year;
-        };
-    }*/
 
     $scope.filter = "$";
-    $scope.search = {title:'', ranking:'', $:'',rating:'',year:''};
-    $scope.changeFilterTo = function(pr) {
+    $scope.search = {title: '', ranking: '', $: '', rating: '', year: ''};
+    $scope.changeFilterTo = function (pr) {
         $scope.filter = pr;
     }
-    $scope.mySortFunction = function(item) {
-        if(isNaN(item[$scope.sortExpression]))
+    $scope.mySortFunction = function (item) {
+        if (isNaN(item[$scope.sortExpression]))
             return item[$scope.sortExpression];
         return parseInt(item[$scope.sortExpression]);
     }
@@ -109,12 +100,10 @@ app.controller('movieListCtrl',['$scope','$filter','$firebase','firebaseUrl','$f
 }])
 
 
+app.controller('movieDetailCtrl', ['$scope', '$stateParams', '$firebaseObject', 'firebaseUrl', function ($scope, $stateParams, $firebaseObject, firebaseUrl) {
+    // $scope.movieDetail=listMovie.findMovie($stateParams.id);
 
-
-app.controller('movieDetailCtrl',['$scope','$stateParams','$firebaseObject','firebaseUrl',function($scope,$stateParams,$firebaseObject,firebaseUrl){
-   // $scope.movieDetail=listMovie.findMovie($stateParams.id);
-
-    var fbId = new Firebase(firebaseUrl+'/movie/'+$stateParams.id);
+    var fbId = new Firebase(firebaseUrl + '/movie/' + $stateParams.id);
     $scope.movieDetail = $firebaseObject(fbId);
 
 }])

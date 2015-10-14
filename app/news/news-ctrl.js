@@ -1,4 +1,3 @@
-
 (function () {
     app.controller("newsCtrl", ['$scope', 'FeedService', FeedCtrl]);
 

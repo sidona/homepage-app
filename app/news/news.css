@@ -1,4 +1,4 @@
-.feed{
+.feed {
     background-color: #6c6767;
     border-radius: 4px;
     align-content: center;
@@ -12,6 +12,7 @@
     border-radius: 9px;
     padding: 6px;
 }
+
 .input-prepend {
     margin-right: 350px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -19,6 +20,7 @@
     background-color: rgba(49, 48, 24, 0.73);
 
 }
+
 .form-control {
     display: block;
     width: 100%;
@@ -38,6 +40,7 @@
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-out .15s, box-shadow ease-out .15s;
 }
+
 form {
     background-color: transparent;
     border-radius: 5px;
@@ -62,6 +65,7 @@ form {
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #000000;
 }
+
 .input-group {
     position: relative;
     display: table;
