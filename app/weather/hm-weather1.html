@@ -1,58 +1,58 @@
-<div class="hm-weather-container" style="align-content: center">
+<div class="hm-weather-container">
     <div class="col-md-1">
-        <div class="well2">
-            <ul>
-                <li><a ui-sref="weather" style="color: ghostwhite">My Locations</a></li>
-                <li><a ui-sref="london" style="color: ghostwhite">london</a></li>
-                <li><a ui-sref="sydney" style="color: ghostwhite">Sydney</a></li>
-                <li><a ui-sref="newYork" style="color: ghostwhite">New York</a></li>
-                <li><a ui-sref="london" style="color: ghostwhite">london</a></li>
-                <li><a ui-sref="sydney" style="color: ghostwhite">Sydney</a></li>
-                <li><a ui-sref="newYork" style="color: ghostwhite">New York</a></li>
-            </ul>
+        <div class="well-list-weather">
+
+            <a ui-sref="weather">My Locations</a><br/>
+            <a ui-sref="london">london</a><br/>
+            <a ui-sref="sydney">Sydney</a><br/>
+            <a ui-sref="newYork">New York</a><br/>
+            <a ui-sref="london">london</a><br/>
+            <a ui-sref="sydney">Sydney</a><br/>
+            <a ui-sref="newYork">New York</a><br/>
+
+
         </div>
     </div>
     <div class="col-md-6">
-        <div class="col-md-3">
-            <div class="iconW">
-                <li style="font-size: 30px;color: #EFEFEF;text-shadow: 1px 1px 2px #1b1b1b, 0 0 25px #fffaeb, 0 0 5px #ffffc9;">
-                    {{weather.currently.temperature}} &#8451
-                    <skycon icon="weather.currently.icon" class="iconT"></skycon>
-                </li>
-                <span style="color: black">{{weather.currently.time| timestampToDate |date:' HH:mm '}}</span><br>
-            </div>
-        </div>
         <div class="well1" id="hm">
             <div class="row">
-                <h3 style="margin-left: 80px">Details</h3>
-                <ul>
-                    <li>
-                        <div class="row">
-                            <div class="col-md-2" style="color: #f8fcd6">Feels like:
-                                {{weather.currently.apparentTemperature}} &#8451
-                            </div>
-                            <div class="col-md-2" style="color: #f8fcd6">Humidity: {{weather.currently.humidity *100}}
-                                %
-                            </div>
-                            <div class="col-md-2" style="color: #f8fcd6">Pressure: {{weather.currently.pressure}}</div>
-                        </div>
-                        <div class="detail">
-                            <p style="font-size: 17px">Tonight - Low {{weather.daily.data[0].temperatureMin}} &#8451 at
-                                {{weather.daily.data[0].temperatureMinTime |timestampToDate | date:'h a'}}.
-                                Winds speed {{weather.daily.data[0].windSpeed}} mph.<br/>
-                                Today - {{weather.daily.data[0].summary}}. High {{weather.daily.data[0].temperatureMax}}
-                                &#8451 at {{weather.daily.data[0].temperatureMaxTime |timestampToDate | date:'h a'}}.
-                                Chance of rain {{weather.daily.data[0].precipProbability *100}}%. <br/>
-                                The sun sunrise at {{weather.daily.data[0].sunriseTime | timestampToDate |date:'HH:mm
+                <div class="col-md-3">
+                    <div class="iconW">
+                        <li style="font-size: 30px;color: #EFEFEF;text-shadow: 1px 1px 2px #1b1b1b, 0 0 25px #fffaeb, 0 0 5px #ffffc9;">
+                            {{weather.currently.temperature}} &#8451
+                            <skycon icon="weather.currently.icon" class="iconT"></skycon>
+                        </li>
+                        <span style="color: black">{{weather.currently.time| timestampToDate |date:' HH:mm '}}</span><br>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                <h3>Details</h3>
+                <table>
+                    <tr>
+                        <td>Feels like</td>
+                        <td>Humidity</td>
+                        <td>Pressure</td>
+                    </tr>
+                    <tr>
+                        <td>{{weather.currently.apparentTemperature}} &#8451</td>
+                        <td>{{weather.currently.humidity *100}} %</td>
+                        <td>{{weather.currently.pressure}}</td>
+                    </tr>
+                </table>
+                            <p><strong>Tonight</strong> - Low {{weather.daily.data[0].temperatureMin}} &#8451 at
+                                {{weather.daily.data[0].temperatureMinTime |timestampToDate | date:'h a'}}.<br/>
+                                <strong>Winds speed</strong> {{weather.daily.data[0].windSpeed}} mph.<br/>
+                                <strong>Today</strong> - {{weather.daily.data[0].summary}}. High {{weather.daily.data[0].temperatureMax}}
+                                &#8451 at {{weather.daily.data[0].temperatureMaxTime |timestampToDate | date:'h a'}}.<br/>
+                                <strong>Chance of rain</strong> {{weather.daily.data[0].precipProbability *100}}%. <br/>
+                                The sun <strong>sunrise</strong> at {{weather.daily.data[0].sunriseTime | timestampToDate |date:'HH:mm
                                 a'}}
-                                and sunset at {{weather.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm a'}}
+                                and <strong>sunset</strong> at {{weather.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm a'}}
                             </p>
-                        </div>
-                </ul>
             </div>
         </div>
-        <div class="well1">
-
+        </div>
+        <div class="well-list-data">
             <table class="table">
                 <thead>
                 <tr>
@@ -75,11 +75,9 @@
                     </td>
                     <td>{{hour.precipProbability*100}} %</td>
                     <td>
-                        <div data-ng-click="show = !show">detail</div>
-                        <p ng-show="show">{{hour.apparentTemperature}} &#8451</p></td>
+                       {{hour.windSpeed}}
                 </tr>
                 </tbody>
-
             </table>
 
             <button ng-click="showMoreWeather()">Next 4 hours
@@ -87,16 +85,16 @@
 
         </div>
 
-        <div class="well1">
+        <div class="well-list-data-day">
 
-            <div class="rowW" ng-repeat="day in weather.daily.data">
+            <div class="row" ng-repeat="day in weather.daily.data">
                 <div class="row" style="margin-left: 70px">
                     <div class="col-md-2">{{day.time| timestampToDate | date:'mediumDate'}}</div>
                     <div class="col-md-2">
                         <skycon icon="day.icon" class="iconD"></skycon>
                     </div>
                     <div class="col-md-2">min/max: {{day.temperatureMin}}&#8451 /{{day.temperatureMax}}&#8451</div>
-                    <div class="col-md-2">
+                    <div class="col-md-5">
                         <button data-ng-click="show = !show">detail</button>
                     </div>
                 </div>

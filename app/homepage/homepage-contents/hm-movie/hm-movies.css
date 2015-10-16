@@ -26,12 +26,45 @@ p {
     margin-top: 10px;
 }
 
-.content1 {
-    border-bottom-color: #A99B81;
-    border-bottom-width: 2px;
-    border-bottom-style: inset;
-    border-bottom-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+.movie-content-hm .panel {
+    margin-bottom: 20px;
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    background-color: rgba(139, 138, 102, 0.27);
+    color: white;
+    width:443px;
+    height: 830px;
+    margin-left: 2px;
+}
+.movie-content-hm .panel-body {
+    padding: 20px;
+    margin-left: 0px;
+    width: 443px;
 
+}
+.movie-content-hm .panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.movie-content-hm a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: 70px;
+}
+.movie-content-hm a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: 70px;
+}
+.movie-content-hm p {
+    color: black;
+    margin-left: 50px;
+    margin-top: 10px;
 }

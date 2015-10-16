@@ -1,0 +1,95 @@
+.movie-enter, .movie-leave {
+    transition: 1000ms ease-in all;
+    position: relative;
+    display: block;
+}
+.movie-enter.movie-enter-active, .movie-leave {
+    left: 0;
+}
+.movie-leave.movie-leave-active, .movie-enter {
+    left: 500px;
+}
+.movieListContainer.toggled {
+    width: 0;
+    overflow: hidden;
+}
+.movieListContainer{
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+.movieList {
+    margin-left: 10px;
+    width: 160px;
+    padding: 25px;
+    border: 1px solid #fffbe0;
+    margin: 25px;
+    height: 300px;
+
+}
+.movieList .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #9b382e;
+}
+.movieList .btn-primary {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+.movie-poster {
+    float: left;
+    width: 90px;
+
+    -moz-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+.wellMovie{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    max-width: 97.5%;
+    margin-top: 20px;
+    height:700px
+}
+.aSrefMovie{
+
+    font-size: 20px;
+}
+.aSrefMovie a:visited {
+    color: #fffbe0;
+    background-color: transparent;
+    text-decoration: none;
+}
+.aSrefMovie a:link {
+    color: #fffbe0;
+    background-color: transparent;
+    text-decoration: none;
+}
+.movieSearch{
+
+    margin-right: 10px;
+}

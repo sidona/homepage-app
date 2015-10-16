@@ -1,45 +1,44 @@
-<div class="panel panel-primary" ng-controller="hm-weather-ctrl" style="width: 600px;height: 830px;margin-left: -10px">
-    <div class="panel-heading" style="font-size:large;background-color: black">
-        <strong>Weather</strong>
+<div class="weather-content-hm">
+    <div class="panel panel-primary" ng-controller="hm-weather-ctrl">
+        <div class="panel-heading" style="font-size:large;background-color: black">
+            <strong>Weather</strong>
+        </div>
+        <div class="panel-body">
+            <h5><strong style="color: #fcf5cd">RIGHT NOW</strong></h5>
+
+            <div class="row ">
+                <div class="col-md-8">
+                    <ul>
+                        <li><strong><i>Summary:</i></strong> {{weather.currently.summary}} &#8451</li>
+                        <li><strong><i>Feels like: </i></strong>{{weather.currently.apparentTemperature}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <skycon icon="weather.currently.icon" class="iconT"></skycon>
+                    <li style="font-size: 25px">{{weather.currently.temperature}} &#8451</li>
+                    <br></div>
+            </div>
+            <div class="row">
+                <div class="col-md-9"><h4 style="color: #fcf5cd">7 days</h4>
+                </div>
+            </div>
+            <div class="row " ng-repeat="day in weather.daily.data">
+                <div class="col-md-8">
+                    <ul>
+                        <span ng-non-bindable></span>
+                        <span>{{day.time| timestampToDate | date:'EEEE'}}</span>
+                        <li><strong><i>min </i></strong> {{day.temperatureMin}} &#8451<strong><i> max</i> </strong>
+                            {{day.temperatureMax}} &#8451
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <skycon icon="day.icon" class="iconH"></skycon>
+                    <br></div>
+            </div>
+        </div>
+        <a ui-sref="weather" style="color: #ffffff;">See more...</a>
     </div>
-    <div class="panel-body">
-        <h5><strong style="color: #fcf5cd">RIGHT NOW</strong></h5>
 
-        <div class="row content1">
-            <div class="col-md-8">
-                <ul>
-                    <li><strong><i>Summary:</i></strong> {{weather.currently.summary}} &#8451</li>
-                    <li><strong><i>Feels like: </i></strong>{{weather.currently.apparentTemperature}}</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <skycon icon="weather.currently.icon"  class="iconT"></skycon>
-                <li style="font-size: 25px">{{weather.currently.temperature}} &#8451</li>
-                <br></div>
-        </div>
-        <div class="row">
-            <div class="col-md-9"><h4 style="color: #fcf5cd">7 days</h4>
-            </div>
-        </div>
-        <div class="row content1" ng-repeat="day in weather.daily.data">
-            <div class="col-md-8">
-                <ul>
-                    <span ng-non-bindable></span>
-                    <span>{{day.time| timestampToDate | date:'EEEE'}}</span>
-                    <li><strong><i>min </i></strong> {{day.temperatureMin}} &#8451<strong><i> max</i> </strong>
-                        {{day.temperatureMax}} &#8451
-                    </li>
-
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <skycon icon="day.icon" class="iconH"></skycon>
-                <br></div>
-        </div>
-    </div>
-    <a ui-sref="weather" style="color: #ffffff;">See more...</a>
-</div>
-
-
-</div>
 </div>

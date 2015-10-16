@@ -25,26 +25,7 @@ li{
 
 }
 
-.movie-enter, .movie-leave {
-    transition: 1000ms ease-in all;
-    position: relative;
-    display: block;
-}
-.movie-enter.movie-enter-active, .movie-leave {
-    left: 0;
-}
-.movie-leave.movie-leave-active, .movie-enter {
-    left: 500px;
-}
-.movieListContainer.toggled {
-    width: 0;
-    overflow: hidden;
-}
-.movieListContainer{
-    width: 100%;
-    text-align: center;
-    height: 100%;
-}
+
 .css-class-add, .css-class-remove {
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
     -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -73,14 +54,6 @@ form{
     padding: 20px;
     margin-left: 0px;
 }
-.movieList {
-    margin-left: 10px;
-    width: 260px;
-    padding: 25px;
-    border: 1px solid #fffbe0;
-    margin: 25px;
-    height:240px;
-}
 
 .css-class,
 .css-class-add.css-class-add-active {
@@ -92,14 +65,7 @@ form{
     font-size:1.0em;
     color:black;
 }
-.row {
-      margin-right: -300px;
-      margin-left: -15px;
-  }
-.homepage .row{
-    margin-right: 0px;
-    margin-left: -15px;
-}
+
 
 .btn {
     display: inline-block;
@@ -159,27 +125,8 @@ li {
     margin-top: 20px;
 
 }
-.wellMS{
-    background-color: #ff6450;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: rgba(48, 47, 24, 0.52);
-    color: white;
-    max-width: 97.5%;
-    margin-top: 20px;
-    height:700px
-}
-.movie-poster {
-    float: left;
-    width: 90px;
 
-    -moz-animation-delay: 1s;
-    -webkit-animation-delay: 1s;
-}
+
 .button {
     float: left;
     min-width: 200px;
@@ -269,4 +216,56 @@ li {
     .related-results {
         display: none;
     }
+}
+@media only screen and (min-width : 320px){
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px){
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px){
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px){
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px){
+
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px){
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px){
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px){
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px){
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px){
+
 }

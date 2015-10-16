@@ -1,0 +1,20 @@
+.movie-search input, button, select, textarea {
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    height: 30px;
+    width: 200px;
+}
+.well-search{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 5px;
+    margin-right: 0px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    margin-bottom: 20px;
+}

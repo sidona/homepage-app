@@ -36,22 +36,9 @@ canvas {
     margin-bottom: 20px;
 }
 
-.table {
-    background-color: #ff6450;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
-    margin-left: 10px;
-    margin-right: 80px;
-    background-color: rgba(48, 47, 24, 0.52);
-    color: white;
-    max-width: 97.5%;
-    margin-top: 20px;
 
-}
 
-.well2 {
+.hm-weather-container .well-list-weather {
     background-color: #ff6450;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -64,10 +51,69 @@ canvas {
     color: white;
     margin-bottom: 20px;
     text-align: center;
+    height: 300px;
+    width: 90px;
 }
-
-.detail {
-    margin-left: 160px;
+.hm-weather-container  a:link {
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.hm-weather-container  a:visited {
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.hm-weather-container  table {
+border:1px;
+    border-color: transparent;
+    padding-left: 5px;
+}
+.hm-weather-container  table td {
+    padding-left: 30px;
+}
+.hm-weather-container p{
+    margin-left: 2px;
+    font-size: 15px;
+}
+.hm-weather-container .well-list-data{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 5px;
+    margin-right: 0px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    margin-bottom: 20px;
+}
+.hm-weather-container .well-list-data table{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    margin-left: 10px;
+    margin-right: 80px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    max-width: 97.5%;
+    margin-top: 20px;
+}
+.hm-weather-container .well-list-data-day{
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-left: 5px;
+    margin-right: 0px;
+    background-color: rgba(48, 47, 24, 0.52);
+    color: white;
+    margin-bottom: 20px;
 }
 
 .iconW {
@@ -102,6 +148,3 @@ canvas {
     border-radius: 5%;
 }
 
-.rowW {
-    border-bottom-color: white;
-}

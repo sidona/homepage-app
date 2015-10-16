@@ -1,8 +1,10 @@
-<div ng-controller="movieListCtrl">
+<div ng-controller="movieListCtrl" >
     <div class="col-md-3">
-        <div class="wellMS">
+        <div class="wellMovie">
+            <div class="aSrefMovie">
+            <a ui-sref="newMovie" >Add New Movie</a>
+            </div>
             <hr>
-
             <label>Filter movie</label> <input type="text" ng-model="search[filter]" style="color: black"> by {{filter}}
             <br>
             <ul>
@@ -11,12 +13,9 @@
                 <li><a href="" ng-click="changeFilterTo('rating')" style="color: white">Rating</a></li>
                 <li><a href="" ng-click="changeFilterTo('year')" style="color: white">Year</a></li>
             </ul>
-
             <hr>
-            <form ng-submit="addMovie()">
-                <input ng-model="newMovie" style="color: black"/>
-                <button type="submit">Add Movie</button>
-            </form>
+
+
             <div>Sort by:
                 <select ng-model="sortExpression">
                     <option value="tile" style="color: black">Title</option>
@@ -31,49 +30,39 @@
     </div>
 
     <div class="col-md-6">
-
-
-        <div class="movieListContainer">
-
-            <div class="movieList"
-                 ng-repeat="(id, movie) in movies track by $index | orderBy:mySortFunction  | filter:search "
+        <div class="movieListContainer" ng-init="showMovies()">
+            <div class="movieList" ng-repeat="movie in movies | filter:search  "
                  style="float:left">
-
-                <button ng-click="movies.$remove(movie)">Delete</button>
-                <img ng-src="{{movie.urlPoster}}" style="width: 110px">
-                <a ui-sref="movieDetail({id:$index})" style="color: white;float: right;">{{movie.title}}</a>
+                <img ng-src="{{movie.urlPoster}}" >
+                <a ui-sref="movieDetail({id:movie._id})" style="color: white;float: right;">{{movie.title}}</a>
+                <a class="btn btn-primary" ui-sref="editMovie({id:movie._id})">Edit</a>
+                <a class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</a>
             </div>
-
             <div class="pagination pagination-centered" ng-show="movies.length">
-                <ul class="pagination-controle pagination">
-                    <li>
-                        <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
-                                ng-click="curPage=curPage-1"> &lt; PREV
-                        </button>
-                    </li>
-                    <li>
-                        <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-primary"
-                                ng-disabled="curPage >= movies.length/pageSize - 1"
-                                ng-click="curPage = curPage+1">NEXT &gt;</button>
-                    </li>
-                </ul>
-            </div>
-
+                            <ul class="pagination-controle pagination">
+                                <li>
+                                    <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                                                                         ng-click="curPage=curPage-1"> &lt; PREV
+                                    </button>
+                                </li>
+                                <li>
+                                    <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+                               </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary" ng-disabled="curPage >= movies.length/pageSize - 1"
+                                                                         ng-click="curPage = curPage+1">NEXT &gt;</button>
+                                </li>
+                            </ul>
+                        </div>
         </div>
-
     </div>
     <div class="col-md-3">
         <div class="wellM">
-
             <div ac-chart="'bar'"
                  ac-data="dataAmount"
                  ac-config="configAmount"
-                 class="chart"></div>
-
-
+                 class="chart">
+            </div>
         </div>
     </div>
 

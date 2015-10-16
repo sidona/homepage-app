@@ -1,26 +1,22 @@
-<div class="panel panel-primary" ng-controller="hm-movie-ctrl" style="width: 600px;height: 830px;margin-left: -10px">
+<div class="movie-content-hm">
+<div class="panel panel-primary" ng-controller="hm-movie-ctrl" >
+
     <div class="panel-heading" style="font-size:large;background-color: black">
         <strong>Movies</strong>
     </div>
 
     <div class="panel-body" lr-drag-src="reorder" lr-drop-target="reorder"
-         ng-repeat="(id, movie) in movies track by $index | limitTo: moviesLimit()" style="height: 120px">
+         ng-repeat=" movie in movies | limitTo: moviesLimit()" >
 
-        <div class="row content1">
-            <div class="col-md-1"><img clas=img" ng-src="{{movie.urlPoster}}" style="width: 60px;margin-right: 1px ">
+        <div class="row ">
+            <div class="col-md-1"><img clas=img" ng-src="{{movie.urlPoster}}" >
             </div>
-            <div class="col-md-11"><strong> <a ui-sref="movieDetail({id:$index})"
-                                               style="color: #fffaef;margin-left: 20px">{{movie.title}}</a></strong>
+            <div class="col-md-11"><strong> <a ui-sref="movieDetail({id:$index})">{{movie.title}}</a></strong>
 
-                <p style="color: #122b40">Detail: {{movie.simplePlot}}</p></div>
+                <p><strong>Detail:</strong>  {{movie.simplePlot}}</div>
         </div>
     </div>
     <a ui-sref="movie" style="color: #ffffff;">See more...</a>
-</div>
-
-</div>
-<div>
-
-
+    </div>
 </div>
 

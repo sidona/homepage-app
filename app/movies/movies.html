@@ -1,9 +1,10 @@
-<div ng-controller="moviesCtrl" style="margin-left: 10px;margin-right: 10px">
+<div ng-controller="moviesCtrl" class="movie-search">
     <div class="input-group search-bar" style="margin-top: 80px">
-        <h4>Search movie: </h4><input type="text" ng-model="titles" ng-change="change()" onclick="select()" size="30"
+        <h4>Search movie: </h4>
+        <input type="text" ng-model="titles" ng-change="change()" onclick="select()" size="30"
                                       style="color: black" autofocus>
     </div>
-    <div class="well1">
+    <div class="well-search">
         <div class="col-md-4">
             <h4>{{movies.Title}}</h4>
             <img ng-src="{{movies.Poster}}">
@@ -15,9 +16,6 @@
             {{movies.Plot}}
         </div>
     </div>
-
-
     </ul>
-
 </div>
 </div>

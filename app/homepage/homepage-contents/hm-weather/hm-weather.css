@@ -2,3 +2,28 @@
     width: 30px;
     height: 30px;
 }
+.weather-content-hm .panel {
+    margin-bottom: 20px;
+    background-color: #ff6450;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    background-color: rgba(139, 138, 102, 0.27);
+    color: white;
+    width:443px;
+    height: 830px;
+    margin-left: 2px;
+}
+.weather-content-hm .panel-body {
+    padding: 20px;
+    margin-left: 0px;
+    width: 443px;
+
+}
+.weather-content-hm .panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
