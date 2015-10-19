@@ -1,5 +1,5 @@
 <div data-ng-controller="newsCtrl">
-
+<div class="news">
     <form class="form-horizontal col-md-12" role="form">
         <div class="row">
             <div class="col-md-6">
@@ -11,17 +11,19 @@
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                             {{currentButtonText}}<span class="caret"></span></button>
 
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <ul class="dropdown-menu dropdown-menu-left" role="menu">
                             <li ng-repeat="feed in allFeeds" ng-click="loadFeed($event,feed.url)">{{feed.titleText}}
                             </li>
                         </ul>
 
                     </div>
+
                     <div class="input-group-btn">
                         <button ng-click="saveFeed()" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                                 title="Save Feed To Your List" type="button"><span
                                 class="glyphicon glyphicon-save"></span></button>
                     </div>
+
                     <div class="input-group-btn">
                         <button ng-click="removeAllFeedsFromLocalStorage()" class="btn btn-default" type="button"><span
                                 class="glyphicon glyphicon-remove"></span></button>
@@ -57,5 +59,5 @@
 
         </li>
     </ul>
-
+</div>
 </div>

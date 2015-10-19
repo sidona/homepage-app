@@ -1,65 +1,70 @@
 <div data-ng-controller="weather-sydneyCtrl">
 
-    <div class="hm-weather-container" style="align-content: center">
+    <div class="weather-container">
         <div class="col-md-1">
-            <div class="well2">
-                <ul>
-                    <li><a ui-sref="weather" style="color: ghostwhite">My Locations</a></li>
-                    <li><a ui-sref="london" style="color: ghostwhite">london</a></li>
-                    <li><a ui-sref="sydney" style="color: ghostwhite">Sydney</a></li>
-                    <li><a ui-sref="newYork" style="color: ghostwhite">New York</a></li>
-                    <li><a ui-sref="london" style="color: ghostwhite">london</a></li>
-                    <li><a ui-sref="sydney" style="color: ghostwhite">Sydney</a></li>
-                    <li><a ui-sref="newYork" style="color: ghostwhite">New York</a></li>
-                </ul>
+            <div class="well-list-weather">
+
+                <a ui-sref="weather">My Locations</a><br/>
+                <a ui-sref="london">london</a><br/>
+                <a ui-sref="sydney">Sydney</a><br/>
+                <a ui-sref="newYork">New York</a><br/>
+                <a ui-sref="london">london</a><br/>
+                <a ui-sref="sydney">Sydney</a><br/>
+                <a ui-sref="newYork">New York</a><br/>
+
+
             </div>
         </div>
         <div class="col-md-6">
-            <div class="col-md-3">
-                <div class="iconW">
-                    <li style="font-size: 30px;color: #EFEFEF;text-shadow: 1px 1px 2px #1b1b1b, 0 0 25px #fffaeb, 0 0 5px #ffffc9;">
-                        {{sydney.currently.temperature}} &#8451
-                        <skycon icon="sydney.currently.icon" class="iconT"></skycon>
-                    </li>
-                    <span style="color: black">{{sydney.currently.time| timestampToDate |date:' HH:mm '}}</span><br>
-                </div>
-            </div>
-            <div class="well1" id="hm">
+            <div class="well-detail-day" id="hm">
                 <div class="row">
-                    <h3 style="margin-left: 80px">Sydney</h3>
-                    <ul>
-                        <li>
-                            <div class="row">
-                                <div class="col-md-2" style="color: #f8fcd6">Feels like:
-                                    {{sydney.currently.apparentTemperature}} &#8451
-                                </div>
-                                <div class="col-md-2" style="color: #f8fcd6">Humidity: {{sydney.currently.humidity *100}}
-                                    %
-                                </div>
-                                <div class="col-md-2" style="color: #f8fcd6">Pressure: {{sydney.currently.pressure}}</div>
-                            </div>
-                            <div class="detail">
-                                <p style="font-size: 17px">Tonight - Low {{sydney.daily.data[0].temperatureMin}} &#8451 at
-                                    {{sydney.daily.data[0].temperatureMinTime |timestampToDate | date:'h a'}}.
-                                    Winds speed {{sydney.daily.data[0].windSpeed}} mph.<br/>
-                                    Today - {{sydney.daily.data[0].summary}}. High {{sydney.daily.data[0].temperatureMax}}
-                                    &#8451 at {{sydney.daily.data[0].temperatureMaxTime |timestampToDate | date:'h a'}}.
-                                    Chance of rain {{sydney.daily.data[0].precipProbability *100}}%. <br/>
-                                    The sun sunrise at {{sydney.daily.data[0].sunriseTime | timestampToDate |date:'HH:mm a'}}
-                                    and sunset at {{sydney.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm a'}} </p>
-                            </div>
-                    </ul>
+                    <div class="col-md-3">
+                        <div class="icon-weather">
+                            <li>
+                                {{sydney.currently.temperature}} &#8451
+                                <skycon icon="sydney.currently.icon" class="iconT"></skycon>
+                            </li>
+                            <span style="color: black">{{sydney.currently.time| timestampToDate |date:' HH:mm '}}</span><br>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h3>Details Sydney</h3>
+                        <table>
+                            <tr>
+                                <td>Feels like</td>
+                                <td>Humidity</td>
+                                <td>Pressure</td>
+                            </tr>
+                            <tr>
+                                <td>{{sydney.currently.apparentTemperature}} &#8451</td>
+                                <td>{{sydney.currently.humidity *100}} %</td>
+                                <td>{{sydney.currently.pressure}}</td>
+                            </tr>
+                        </table>
+                        <p><strong>Tonight</strong> - Low {{sydney.daily.data[0].temperatureMin}} &#8451 at
+                            {{sydney.daily.data[0].temperatureMinTime |timestampToDate | date:'h a'}}.<br/>
+                            <strong>Winds speed</strong> {{sydney.daily.data[0].windSpeed}} mph.<br/>
+                            <strong>Today</strong> - {{sydney.daily.data[0].summary}}. High
+                            {{sydney.daily.data[0].temperatureMax}}
+                            &#8451 at {{weather.daily.data[0].temperatureMaxTime |timestampToDate | date:'h a'}}.<br/>
+                            <strong>Chance of rain</strong> {{sydney.daily.data[0].precipProbability *100}}%. <br/>
+                            The sun <strong>sunrise</strong> at {{sydney.daily.data[0].sunriseTime | timestampToDate
+                            |date:'HH:mm
+                            a'}}
+                            and <strong>sunset</strong> at {{sydney.daily.data[0].sunsetTime | timestampToDate |date:'HH:mm
+                            a'}}
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="well1">
-
+            <div class="well-list-data">
                 <table class="table">
                     <thead>
                     <tr>
                         <th class="col-md-2">Time</th>
                         <th class="col-md-2">Temp</th>
                         <th class="col-md-2">Feels</th>
-                        <th class="col-md-2">Cond</th>
+                        <th class="col-md-3">Cond</th>
                         <th class="col-md-1">Prec</th>
                         <th class="col-md-1">Wind</th>
                     </tr>
@@ -75,51 +80,59 @@
                         </td>
                         <td>{{hour.precipProbability*100}} %</td>
                         <td>
-                            <div data-ng-click="show = !show">detail</div>
-                            <p ng-show="show">{{hour.apparentTemperature}} &#8451</p></td>
+                            {{hour.windSpeed}}
                     </tr>
                     </tbody>
-
                 </table>
 
-                <button ng-click="showMoreWeather()">Next 4 hours
+                <button class="next-hour" ng-click="showMoreWeather()">Next 4 hours
                     <span class="glyphicon glyphicon-arrow-down"></span></button>
 
             </div>
 
-            <div class="well1">
+            <div class="well-list-data-day">
 
-                <div class="rowW" ng-repeat="day in sydney.daily.data">
-                    <div class="row" style="margin-left: 70px">
-                        <div class="col-md-2">{{day.time| timestampToDate | date:'mediumDate'}}</div>
-                        <div class="col-md-2"> <skycon icon="day.icon" class="iconD"></skycon></div>
-                        <div class="col-md-2">min/max: {{day.temperatureMin}}&#8451 /{{day.temperatureMax}}&#8451</div>
-                        <div class="col-md-2"><button data-ng-click="show = !show">detail</button> </div>
+                <div ng-repeat="day in sydney.daily.data">
+                    <div class="row">
+                        <div class="col-md-3">{{day.time| timestampToDate | date:'mediumDate'}}</div>
+                        <div class="col-md-2">
+                            <skycon icon="day.icon" class="iconD"></skycon>
+                        </div>
+                        <div class="col-md-5">min/max: {{day.temperatureMin}}&#8451 /{{day.temperatureMax}}&#8451</div>
+                        <div class="col-md-2">
+                            <button class="detail" data-ng-click="show = !show">detail</button>
+                        </div>
                     </div>
                     <div class="details" ng-show="show">
                         <p> {{day.summary}}</p>
+
                         <p>Chance of rain {{day.precipProbability *100}}%</p>
+
                         <div class="col-md-6">
                             <div class="row1">
                                 <li>{{day.time| timestampToDate | date:'EEEE'}}</li>
-                                <li> <skycon icon="day.icon" class="iconD"></skycon> </li>
+                                <li>
+                                    <skycon icon="day.icon" class="iconD"></skycon>
+                                </li>
                                 <li>{{day.temperatureMax}} &#8451</li>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row1">
                                 <li>{{day.time| timestampToDate | date:'EEEE'}} Night</li>
-                                <li><skycon icon="day.icon" class="iconD"></skycon> </li>
+                                <li>
+                                    <skycon icon="day.icon" class="iconD"></skycon>
+                                </li>
                                 <li>{{day.temperatureMin}} &#8451</li>
                             </div>
                         </div>
 
-                        <table class="table2">
+                        <table class="table">
                             <thead>
                             <tr>
-                                <th class="col-md-1">Sunrise</th>
-                                <th class="col-md-1">Sunset</th>
-                                <th class="col-md-1">Moon Phase</th>
+                                <th class="col-md-2">Sunrise</th>
+                                <th class="col-md-2">Sunset</th>
+                                <th class="col-md-3">Moon Phase</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -135,20 +148,24 @@
 
 
             </div>
+            <div class="col-md-3">
 
+
+            </div>
         </div>
         <div class="col-md-5">
             <div class="well1">
-            <div class="panel-body">
+                <div class="panel-body">
 
-                <div class="col-md-12">
-                    <div ac-chart="'line'"
-                         ac-data="dataSydney"
-                         ac-config="configSydney"
-                         class="chart"></div>
+                    <div class="col-md-12">
+                        <div ac-chart="'line'"
+                             ac-data="dataSydney"
+                             ac-config="config"
+                             class="chart"></div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
+
 </div>

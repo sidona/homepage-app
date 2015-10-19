@@ -33,9 +33,4 @@ app.controller('FeedCtrl', function ($scope, FeedList) {
 app.controller('hm-weather-ctrl', ['$scope', '$http', function ($scope, $http) {
 
 }]);
-app.controller('authenticatedCtrl', function ($scope) {
-  $scope.showModal = false;
-  $scope.toggleModal = function () {
-    $scope.showModal = !$scope.showModal;
-  };
-});
+

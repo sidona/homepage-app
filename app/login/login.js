@@ -142,7 +142,7 @@ app.controller('registerController',
         AuthService.register($scope.registerForm.username, $scope.registerForm.password)
           // handle success
           .then(function () {
-            $location.path('/login');
+            $location.path('/homepage/login');
             $scope.isAuthenticated = false;
             $scope.registerForm = {};
           })
